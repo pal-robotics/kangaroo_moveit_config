@@ -128,6 +128,7 @@
     <disable_collisions link1="leg_left_knee_link" link2="leg_right_1_link" reason="Never" />
     <disable_collisions link1="leg_left_knee_link" link2="leg_right_2_link" reason="Never" />
     <disable_collisions link1="leg_left_knee_link" link2="leg_right_3_link" reason="Never" />
+    <disable_collisions link1="leg_left_knee_link" link2="leg_left_length_link" reason="Default" />
     <disable_collisions link1="leg_left_length_link" link2="leg_right_1_link" reason="Never" />
     <disable_collisions link1="leg_left_length_link" link2="leg_right_2_link" reason="Never" />
     <disable_collisions link1="leg_left_length_link" link2="leg_right_3_link" reason="Never" />
@@ -155,4 +156,5 @@
     <disable_collisions link1="leg_right_5_link" link2="leg_right_length_link" reason="Never" />
     <disable_collisions link1="leg_right_femur_link" link2="leg_right_knee_link" reason="Adjacent" />
     <disable_collisions link1="leg_right_femur_link" link2="leg_right_length_link" reason="Default" />
+    <disable_collisions link1="leg_right_knee_link" link2="leg_right_length_link" reason="Default" />
 </robot>
