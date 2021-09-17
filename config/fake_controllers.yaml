@@ -15,6 +15,20 @@ controller_list:
       - leg_right_length_joint
       - leg_right_4_joint
       - leg_right_5_joint
+  - name: fake_both_legs_controller
+    joints:
+      - leg_left_1_joint
+      - leg_left_2_joint
+      - leg_left_3_joint
+      - leg_left_length_joint
+      - leg_left_4_joint
+      - leg_left_5_joint
+      - leg_right_1_joint
+      - leg_right_2_joint
+      - leg_right_3_joint
+      - leg_right_length_joint
+      - leg_right_4_joint
+      - leg_right_5_joint
 initial:  # Define initial robot poses.
 #  - group: left_leg
 #    pose: home
