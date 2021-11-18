@@ -8,4 +8,4 @@ moveit_setup_assistant_config:
   CONFIG:
     author_name: Adrià Roig
     author_email: adria.roig@pal-robotics.com
-    generated_timestamp: 1614597260
+    generated_timestamp: 1631808013
