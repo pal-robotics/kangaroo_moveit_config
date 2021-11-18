@@ -2,8 +2,8 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.2 (2021-11-18)
+------------------
 * Merge branch 'both_legs_group' into 'master'
   added move group configuration for the both legs
   See merge request robots/kangaroo_moveit_config!2
