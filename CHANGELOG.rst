@@ -2,6 +2,11 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* remove kangaroo description dependency
+* Contributors: Sai Kishor Kothakota
+
 0.0.2 (2021-11-18)
 ------------------
 * Merge branch 'both_legs_group' into 'master'
