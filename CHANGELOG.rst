@@ -2,8 +2,8 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.3 (2022-05-04)
+------------------
 * remove kangaroo description dependency
 * Contributors: Sai Kishor Kothakota
 
