@@ -2,6 +2,15 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'update/052024/kangaroo_version_2023' into 'master'
+  Update the moveit configuration for the kangaroo version 2023
+  See merge request robots/kangaroo_moveit_config!3
+* Add moveit_simple_controller_manager dependency
+* Add the new SRDF configuration
+* Contributors: Adria Roig, Sai Kishor Kothakota
+
 0.0.3 (2022-05-04)
 ------------------
 * remove kangaroo description dependency
