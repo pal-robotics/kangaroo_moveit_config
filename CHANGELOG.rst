@@ -2,6 +2,14 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'add_more_collision_pairs' into 'master'
+  Add more collision pairs after testing on the robot
+  See merge request robots/kangaroo_moveit_config!4
+* Add more collision pairs after testing on the robot
+* Contributors: Adria Roig, Sai Kishor Kothakota
+
 0.0.4 (2024-05-07)
 ------------------
 * Merge branch 'update/052024/kangaroo_version_2023' into 'master'
