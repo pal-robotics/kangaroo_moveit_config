@@ -2,6 +2,14 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'update/moveit_config/2023' into 'master'
+  update the moveit config with the new 2023 configuration
+  See merge request robots/kangaroo_moveit_config!5
+* update the moveit config with the new 2023 configuration
+* Contributors: Sai Kishor Kothakota
+
 0.0.5 (2024-05-08)
 ------------------
 * Merge branch 'add_more_collision_pairs' into 'master'
