@@ -2,8 +2,8 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.6 (2024-09-10)
+------------------
 * Merge branch 'update/moveit_config/2023' into 'master'
   update the moveit config with the new 2023 configuration
   See merge request robots/kangaroo_moveit_config!5
