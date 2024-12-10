@@ -6,7 +6,7 @@
   <arg name="robot_description" default="robot_description"/>
 
   <!-- Load universal robot description format (URDF) -->
-  <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="xacro enable_crane:=false fixed_base:=false simulation:=true '$(find kangaroo_description)/robots/kangaroo.urdf.xacro'"/>
+  <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="xacro enable_crane:=false fixed_base:=false simulation:=true ft_sensors:=false with_arms:=true use_mimic:=false '$(find kangaroo_description)/robots/kangaroo.urdf.xacro'"/>
 
   <!-- The semantic description that corresponds to the URDF -->
   <param name="$(arg robot_description)_semantic" textfile="$(find kangaroo_moveit_config)/config/kangaroo.srdf" />

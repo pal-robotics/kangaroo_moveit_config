@@ -121,7 +121,6 @@ planner_configs:
     dense_delta_fraction: 0.001  # delta fraction for interface detection. default: 0.001
     max_failures: 5000  # maximum consecutive failure limit. default: 5000
 left_leg:
-  default_planner_config: ""
   planner_configs:
     - SBL
     - EST
@@ -149,7 +148,6 @@ left_leg:
   projection_evaluator: joints(leg_left_1_joint,leg_left_2_joint)
   longest_valid_segment_fraction: 0.005
 right_leg:
-  default_planner_config: ""
   planner_configs:
     - SBL
     - EST
@@ -177,7 +175,6 @@ right_leg:
   projection_evaluator: joints(leg_right_1_joint,leg_right_2_joint)
   longest_valid_segment_fraction: 0.005
 both_legs:
-  default_planner_config: None
   planner_configs:
     - SBL
     - EST
@@ -203,4 +200,85 @@ both_legs:
     - SPARS
     - SPARStwo
   projection_evaluator: joints(leg_left_1_joint,leg_left_2_joint)
+  longest_valid_segment_fraction: 0.005
+left_arm:
+  planner_configs:
+    - SBL
+    - EST
+    - LBKPIECE
+    - BKPIECE
+    - KPIECE
+    - RRT
+    - RRTConnect
+    - RRTstar
+    - TRRT
+    - PRM
+    - PRMstar
+    - FMT
+    - BFMT
+    - PDST
+    - STRIDE
+    - BiTRRT
+    - LBTRRT
+    - BiEST
+    - ProjEST
+    - LazyPRM
+    - LazyPRMstar
+    - SPARS
+    - SPARStwo
+  projection_evaluator: joints(arm_left_1_joint,arm_left_2_joint)
+  longest_valid_segment_fraction: 0.005
+right_arm:
+  planner_configs:
+    - SBL
+    - EST
+    - LBKPIECE
+    - BKPIECE
+    - KPIECE
+    - RRT
+    - RRTConnect
+    - RRTstar
+    - TRRT
+    - PRM
+    - PRMstar
+    - FMT
+    - BFMT
+    - PDST
+    - STRIDE
+    - BiTRRT
+    - LBTRRT
+    - BiEST
+    - ProjEST
+    - LazyPRM
+    - LazyPRMstar
+    - SPARS
+    - SPARStwo
+  projection_evaluator: joints(arm_right_1_joint,arm_right_2_joint)
+  longest_valid_segment_fraction: 0.005
+both_arms:
+  planner_configs:
+    - SBL
+    - EST
+    - LBKPIECE
+    - BKPIECE
+    - KPIECE
+    - RRT
+    - RRTConnect
+    - RRTstar
+    - TRRT
+    - PRM
+    - PRMstar
+    - FMT
+    - BFMT
+    - PDST
+    - STRIDE
+    - BiTRRT
+    - LBTRRT
+    - BiEST
+    - ProjEST
+    - LazyPRM
+    - LazyPRMstar
+    - SPARS
+    - SPARStwo
+  projection_evaluator: joints(arm_left_1_joint,arm_left_2_joint)
   longest_valid_segment_fraction: 0.005
