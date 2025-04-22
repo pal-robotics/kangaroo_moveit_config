@@ -579,11 +579,15 @@
     <disable_collisions link1="leg_right_length_link" link2="torso_back_rgbd_camera_link" reason="Never" />
     <disable_collisions link1="leg_right_length_link" link2="torso_front_rgbd_camera_link" reason="Never" />
     <disable_collisions link1="leg_right_length_link" link2="waist_back_rgbd_camera_link" reason="Never" />
+    <disable_collisions link1="pelvis_1_link" link2="leg_right_1_link" reason="Never" />
+    <disable_collisions link1="pelvis_1_link" link2="leg_left_1_link" reason="Never" />
     <disable_collisions link1="pelvis_1_link" link2="pelvis_2_link" reason="Adjacent" />
     <disable_collisions link1="pelvis_1_link" link2="pelvis_base_link" reason="Adjacent" />
     <disable_collisions link1="pelvis_1_link" link2="torso_back_rgbd_camera_link" reason="Never" />
     <disable_collisions link1="pelvis_1_link" link2="torso_front_rgbd_camera_link" reason="Never" />
     <disable_collisions link1="pelvis_1_link" link2="torso_link" reason="Default" />
+    <disable_collisions link1="pelvis_2_link" link2="leg_right_1_link" reason="Never" />
+    <disable_collisions link1="pelvis_2_link" link2="leg_left_1_link" reason="Never" />
     <disable_collisions link1="pelvis_2_link" link2="pelvis_base_link" reason="Never" />
     <disable_collisions link1="pelvis_2_link" link2="torso_back_rgbd_camera_link" reason="Never" />
     <disable_collisions link1="pelvis_2_link" link2="torso_front_rgbd_camera_link" reason="Never" />
@@ -591,6 +595,8 @@
     <disable_collisions link1="pelvis_base_link" link2="torso_back_rgbd_camera_link" reason="Never" />
     <disable_collisions link1="pelvis_base_link" link2="torso_front_rgbd_camera_link" reason="Never" />
     <disable_collisions link1="pelvis_base_link" link2="torso_link" reason="Never" />
+    <disable_collisions link1="pelvis_base_link" link2="leg_left_1_link" reason="Never" />
+    <disable_collisions link1="pelvis_base_link" link2="leg_right_1_link" reason="Never" />
     <disable_collisions link1="torso_back_rgbd_camera_link" link2="torso_front_rgbd_camera_link" reason="Never" />
     <disable_collisions link1="torso_back_rgbd_camera_link" link2="torso_link" reason="Adjacent" />
     <disable_collisions link1="torso_front_rgbd_camera_link" link2="torso_link" reason="Adjacent" />
