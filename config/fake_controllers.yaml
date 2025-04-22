@@ -72,6 +72,8 @@ controller_list:
       - leg_right_length_joint
       - leg_right_4_joint
       - leg_right_5_joint
+      - pelvis_1_joint
+      - pelvis_2_joint
       - arm_left_1_joint
       - arm_left_2_joint
       - arm_left_3_joint
@@ -80,6 +82,11 @@ controller_list:
       - arm_right_2_joint
       - arm_right_3_joint
       - arm_right_4_joint
+  - name: fake_pelvis_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - pelvis_1_joint
+      - pelvis_2_joint
 initial:  # Define initial robot poses.
 #  - group: left_leg
 #    pose: home
