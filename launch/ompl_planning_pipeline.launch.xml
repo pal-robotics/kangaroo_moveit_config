@@ -1,4 +1,6 @@
 <launch>
+  
+  <arg name="robot_type" default="" />
 
   <!-- OMPL Plugin for MoveIt! -->
   <arg name="planning_plugin" value="ompl_interface/OMPLPlanner" />
@@ -17,6 +19,12 @@
   <param name="request_adapters" value="$(arg planning_adapters)" />
   <param name="start_state_max_bounds_error" value="$(arg start_state_max_bounds_error)" />
 
+  <group if="$(eval robot_type != 'lowerbody')">
+    <rosparam command="load" file="$(find kangaroo_moveit_config)/config/$(arg robot_type)_planning.yaml"/>
+  </group>
+
   <rosparam command="load" file="$(find kangaroo_moveit_config)/config/ompl_planning.yaml"/>
+
+  <rosparam command="load" file="$(find kangaroo_moveit_config)/config/lowerbody_planning.yaml"/>
 
 </launch>
