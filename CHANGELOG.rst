@@ -2,8 +2,8 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.7 (2025-05-22)
+------------------
 * Merge branch 'lm/arms_motions' into 'master'
   Lm/arms motions
   See merge request robots/kangaroo_moveit_config!7
