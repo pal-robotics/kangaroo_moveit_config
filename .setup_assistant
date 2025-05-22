@@ -2,10 +2,10 @@ moveit_setup_assistant_config:
   URDF:
     package: kangaroo_description
     relative_path: robots/kangaroo.urdf.xacro
-    xacro_args: enable_crane:=false fixed_base:=false simulation:=true version:=2023 use_cage:=false ft_sensors:=false use_mimic:=true
+    xacro_args: enable_crane:=false fixed_base:=false simulation:=true ft_sensors:=false use_mimic:=true with_arms:=true
   SRDF:
     relative_path: config/kangaroo.srdf
   CONFIG:
     author_name: Adrià Roig
     author_email: adria.roig@pal-robotics.com
-    generated_timestamp: 1715071553
+    generated_timestamp: 1733920016

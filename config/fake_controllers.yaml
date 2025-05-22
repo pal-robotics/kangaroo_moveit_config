@@ -1,5 +1,6 @@
 controller_list:
   - name: fake_left_leg_controller
+    type: $(arg fake_execution_type)
     joints:
       - leg_left_1_joint
       - leg_left_2_joint
@@ -8,6 +9,7 @@ controller_list:
       - leg_left_4_joint
       - leg_left_5_joint
   - name: fake_right_leg_controller
+    type: $(arg fake_execution_type)
     joints:
       - leg_right_1_joint
       - leg_right_2_joint
@@ -16,6 +18,7 @@ controller_list:
       - leg_right_4_joint
       - leg_right_5_joint
   - name: fake_both_legs_controller
+    type: $(arg fake_execution_type)
     joints:
       - leg_left_1_joint
       - leg_left_2_joint
@@ -29,6 +32,56 @@ controller_list:
       - leg_right_length_joint
       - leg_right_4_joint
       - leg_right_5_joint
+  - name: fake_left_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_left_1_joint
+      - arm_left_2_joint
+      - arm_left_3_joint
+      - arm_left_4_joint
+  - name: fake_right_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_right_1_joint
+      - arm_right_2_joint
+      - arm_right_3_joint
+      - arm_right_4_joint
+  - name: fake_both_arms_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_left_1_joint
+      - arm_left_2_joint
+      - arm_left_3_joint
+      - arm_left_4_joint
+      - arm_right_1_joint
+      - arm_right_2_joint
+      - arm_right_3_joint
+      - arm_right_4_joint
+  - name: fake_everything_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - leg_left_1_joint
+      - leg_left_2_joint
+      - leg_left_3_joint
+      - leg_left_length_joint
+      - leg_left_4_joint
+      - leg_left_5_joint
+      - leg_right_1_joint
+      - leg_right_2_joint
+      - leg_right_3_joint
+      - leg_right_length_joint
+      - leg_right_4_joint
+      - leg_right_5_joint
+      - arm_left_1_joint
+      - arm_left_2_joint
+      - arm_left_3_joint
+      - arm_left_4_joint
+      - arm_right_1_joint
+      - arm_right_2_joint
+      - arm_right_3_joint
+      - arm_right_4_joint
 initial:  # Define initial robot poses.
 #  - group: left_leg
 #    pose: home
+
+  []

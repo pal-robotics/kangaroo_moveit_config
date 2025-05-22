@@ -1,0 +1,9 @@
+controller_manager_ns: controller_manager
+controller_list:
+  - name: pelvis_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - pelvis_1_joint
+      - pelvis_2_joint
