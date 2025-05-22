@@ -2,6 +2,16 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'lm/arms_motions' into 'master'
+  Lm/arms motions
+  See merge request robots/kangaroo_moveit_config!7
+* Add arguments and config files for different configurations
+* tested on the robot and used for video motions
+* generated configiration for arms moveit
+* Contributors: Adria Roig, Luca Marchionni
+
 0.0.6 (2024-09-10)
 ------------------
 * Merge branch 'update/moveit_config/2023' into 'master'
