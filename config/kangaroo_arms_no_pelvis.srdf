@@ -624,4 +624,6 @@
     <disable_collisions link1="leg_right_knee_link" link2="leg_right_length_link" reason="Never" />
     <disable_collisions link1="leg_right_length_link" link2="base_link" reason="Never" />
     <disable_collisions link1="leg_left_length_link" link2="base_link" reason="Never" />
+    <disable_collisions link1="leg_right_5_link" link2="leg_right_femur_link" reason="Never" />
+    <disable_collisions link1="leg_left_5_link" link2="leg_left_femur_link" reason="Never" />
 </robot>
