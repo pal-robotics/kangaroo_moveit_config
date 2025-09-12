@@ -443,6 +443,7 @@
     <disable_collisions link1="leg_left_1_link" link2="torso_link" reason="Never" />
     <disable_collisions link1="leg_left_1_link" link2="waist_back_rgbd_camera_link" reason="Never" />
     <disable_collisions link1="leg_left_1_link" link2="waist_front_rgbd_camera_link" reason="Never" />
+    <disable_collisions link1="leg_left_1_link" link2="back_handle" reason="Never" />
     <disable_collisions link1="leg_left_2_link" link2="leg_left_3_link" reason="Adjacent" />
     <disable_collisions link1="leg_left_2_link" link2="leg_left_4_link" reason="Never" />
     <disable_collisions link1="leg_left_2_link" link2="leg_left_5_link" reason="Never" />
@@ -553,6 +554,7 @@
     <disable_collisions link1="leg_right_1_link" link2="torso_link" reason="Never" />
     <disable_collisions link1="leg_right_1_link" link2="waist_back_rgbd_camera_link" reason="Never" />
     <disable_collisions link1="leg_right_1_link" link2="waist_front_rgbd_camera_link" reason="Never" />
+    <disable_collisions link1="leg_right_1_link" link2="back_handle" reason="Never" />
     <disable_collisions link1="leg_right_2_link" link2="leg_right_3_link" reason="Adjacent" />
     <disable_collisions link1="leg_right_2_link" link2="leg_right_4_link" reason="Never" />
     <disable_collisions link1="leg_right_2_link" link2="leg_right_5_link" reason="Never" />
