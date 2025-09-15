@@ -2,6 +2,21 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'lm/arms_motions_rebased' into 'master'
+  Lm/arms motions rebased
+  See merge request robots/kangaroo_moveit_config!9
+* Remove the pelvis related changes in no pelvis configuration
+* Removing pelvis joints from srdf without pelvis
+* Dissable collisions between back_handle and leg\_<side>_link_1
+* Adding dissable collisions for pelvis' links in kangaroo_pelvis_no_arms srdf
+* Adding dissable collisions for pelvis' links in kangaroo_full srdf
+* remove self colisions
+* add adjacent links next to pelvis to blacklist
+* Generate SRDF with pelvis joints
+* Contributors: Luca Marchionni, Sai Kishor Kothakota, antoniomartinez
+
 0.0.7 (2025-05-22)
 ------------------
 * Merge branch 'lm/arms_motions' into 'master'
