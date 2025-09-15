@@ -82,13 +82,8 @@
         <joint name="arm_right_2_joint" />
         <joint name="arm_right_3_joint" />
         <joint name="arm_right_4_joint" />
-        <joint name="pelvis_1_joint" />
-        <joint name="pelvis_2_joint" />
     </group>
-    <group name="pelvis">
-        <joint name="pelvis_1_joint" />
-        <joint name="pelvis_2_joint" />
-    </group>
+
     <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
     <passive_joint name="leg_left_femur_joint" />
     <passive_joint name="leg_left_knee_joint" />
