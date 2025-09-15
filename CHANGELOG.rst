@@ -2,8 +2,8 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.8 (2025-09-15)
+------------------
 * Merge branch 'lm/arms_motions_rebased' into 'master'
   Lm/arms motions rebased
   See merge request robots/kangaroo_moveit_config!9
