@@ -44,22 +44,34 @@
         <joint name="arm_left_2_joint" />
         <joint name="arm_left_3_joint" />
         <joint name="arm_left_4_joint" />
+        <joint name="arm_left_5_joint" />
+        <joint name="arm_left_6_joint" />
+        <joint name="arm_left_7_joint" />
     </group>
     <group name="right_arm">
         <joint name="arm_right_1_joint" />
         <joint name="arm_right_2_joint" />
         <joint name="arm_right_3_joint" />
         <joint name="arm_right_4_joint" />
+        <joint name="arm_right_5_joint" />
+        <joint name="arm_right_6_joint" />
+        <joint name="arm_right_7_joint" />
     </group>
     <group name="both_arms">
         <joint name="arm_left_1_joint" />
         <joint name="arm_left_2_joint" />
         <joint name="arm_left_3_joint" />
         <joint name="arm_left_4_joint" />
+        <joint name="arm_left_5_joint" />
+        <joint name="arm_left_6_joint" />
+        <joint name="arm_left_7_joint" />
         <joint name="arm_right_1_joint" />
         <joint name="arm_right_2_joint" />
         <joint name="arm_right_3_joint" />
         <joint name="arm_right_4_joint" />
+        <joint name="arm_right_5_joint" />
+        <joint name="arm_right_6_joint" />
+        <joint name="arm_right_7_joint" />
     </group>
     <group name="pelvis">
 	      <joint name="pelvis_1_joint" />
@@ -70,10 +82,16 @@
         <joint name="arm_left_2_joint" />
         <joint name="arm_left_3_joint" />
         <joint name="arm_left_4_joint" />
+        <joint name="arm_left_5_joint" />
+        <joint name="arm_left_6_joint" />
+        <joint name="arm_left_7_joint" />
         <joint name="arm_right_1_joint" />
         <joint name="arm_right_2_joint" />
         <joint name="arm_right_3_joint" />
         <joint name="arm_right_4_joint" />
+        <joint name="arm_right_5_joint" />
+        <joint name="arm_right_6_joint" />
+        <joint name="arm_right_7_joint" />
         <joint name="pelvis_1_joint" />
         <joint name="pelvis_2_joint" />
     </group>
@@ -82,6 +100,9 @@
         <joint name="arm_left_2_joint" />
         <joint name="arm_left_3_joint" />
         <joint name="arm_left_4_joint" />
+        <joint name="arm_left_5_joint" />
+        <joint name="arm_left_6_joint" />
+        <joint name="arm_left_7_joint" />
         <joint name="pelvis_1_joint" />
         <joint name="pelvis_2_joint" />
     </group>
@@ -90,6 +111,9 @@
         <joint name="arm_right_2_joint" />
         <joint name="arm_right_3_joint" />
         <joint name="arm_right_4_joint" />
+        <joint name="arm_right_5_joint" />
+        <joint name="arm_right_6_joint" />
+        <joint name="arm_right_7_joint" />
         <joint name="pelvis_1_joint" />
         <joint name="pelvis_2_joint" />
     </group>
@@ -126,9 +150,15 @@
         <joint name="arm_left_2_joint" />
         <joint name="arm_left_3_joint" />
         <joint name="arm_left_4_joint" />
+        <joint name="arm_left_5_joint" />
+        <joint name="arm_left_6_joint" />
+        <joint name="arm_left_7_joint" />
         <joint name="arm_right_1_joint" />
         <joint name="arm_right_2_joint" />
         <joint name="arm_right_3_joint" />
+        <joint name="arm_right_5_joint" />
+        <joint name="arm_right_6_joint" />
+        <joint name="arm_right_7_joint" />
 	<joint name="arm_right_4_joint" />
         <joint name="pelvis_1_joint" />
         <joint name="pelvis_2_joint" />
