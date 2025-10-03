@@ -10,14 +10,6 @@
   
   <param name="use_controller_manager" value="$(arg use_controller_manager)" />
 
-  <group if="$(eval str(robot_type) in ['full', 'pelvis_no_arms'])">
-    <rosparam file="$(find kangaroo_moveit_config)/config/controllers_pelvis.yaml"/>
-  </group>
-
-  <group if="$(eval str(robot_type) in ['full', 'arms_no_pelvis'])">
-    <rosparam file="$(find kangaroo_moveit_config)/config/controllers_arms.yaml"/>
-  </group>
-  
-  <rosparam file="$(find kangaroo_moveit_config)/config/controllers_legs.yaml"/>
+  <rosparam file="$(find kangaroo_moveit_config)/config/$(arg robot_type)_controllers.yaml"/>
 
 </launch>
