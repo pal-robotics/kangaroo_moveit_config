@@ -49,3 +49,17 @@ controller_list:
       - arm_right_5_joint
       - arm_right_6_joint
       - arm_right_7_joint
+
+  - name: gripper_left_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - gripper_left_finger_joint
+
+  - name: gripper_right_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - gripper_right_finger_joint
