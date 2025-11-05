@@ -2,6 +2,24 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* add the lower body with arms controller yaml
+* Merge branch 'sma/add_arm7dof' into 'master'
+  Add 7 DoF arm with gripper integration
+  See merge request robots/kangaroo_moveit_config!10
+* remove the whitespace
+* Merge branch 'sma/add_gripper_on_7dof' into 'sma/add_arm7dof'
+  Add pal pro gripper on 7dof arm
+  See merge request robots/kangaroo_moveit_config!11
+* added gripper controller list
+* added exclude collision for gripper
+* added gripper configuration
+* renamed file with correct robot_type
+* added robot_type logic for 7dof arm
+* added 7dof arm option
+* Contributors: Sai Kishor Kothakota, sergiacosta
+
 0.0.8 (2025-09-15)
 ------------------
 * Merge branch 'lm/arms_motions_rebased' into 'master'
