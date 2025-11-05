@@ -2,8 +2,8 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.0 (2025-11-05)
+------------------
 * add the lower body with arms controller yaml
 * Merge branch 'sma/add_arm7dof' into 'master'
   Add 7 DoF arm with gripper integration
