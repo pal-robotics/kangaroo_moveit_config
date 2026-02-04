@@ -2,6 +2,14 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* coppied tiago model file
+* updated launchfiles
+* updated config files
+* created ros2 package
+* Contributors: sergiacosta
+
 0.1.0 (2025-11-05)
 ------------------
 * add the lower body with arms controller yaml
