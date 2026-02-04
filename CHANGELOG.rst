@@ -2,8 +2,8 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.1 (2026-02-04)
+------------------
 * Merge branch 'sma/update_pkg_dependencies' into 'humble-devel'
   updated dependencies
   See merge request robots/kangaroo_moveit_config!13
