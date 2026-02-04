@@ -2,6 +2,16 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'sma/update_pkg_dependencies' into 'humble-devel'
+  updated dependencies
+  See merge request robots/kangaroo_moveit_config!13
+* removed test dependency
+* removed test dependencies
+* updated dependencies
+* Contributors: Sai Kishor Kothakota, sergiacosta
+
 2.0.0 (2026-02-04)
 ------------------
 * coppied tiago model file
