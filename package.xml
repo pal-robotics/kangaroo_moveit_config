@@ -4,9 +4,7 @@
   <description>
      An automatically generated package with all the configuration and launch files for using the kangaroo with the MoveIt! Motion Planning Framework
   </description>
-  <author email="narcis.miguel@pal-robotics.com">Narcis Miguel</author>
-  <maintainer email="narcis.miguel@pal-robotics.com">Narcis Miguel</maintainer>
-  <maintainer email="ilenia.perrella@pal-robotics.com">Ilenia Perrella</maintainer>
+  <maintainer email="sergi.acosta@pal-robotics.com">Sergi de las Muelas</maintainer>
 
   <license>Apache License 2.0</license>
 
@@ -23,12 +21,7 @@
   <exec_depend>launch_pal</exec_depend>
   <exec_depend>moveit_configs_utils</exec_depend>
   <exec_depend>moveit_ros_move_group</exec_depend>
-  <exec_depend>kangaroo_description</exec_depend>
   <exec_depend>pal_sea_arm_moveit_config</exec_depend>
-
-
-  <test_depend>ament_lint_auto</test_depend>
-  <test_depend>ament_lint_common</test_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
