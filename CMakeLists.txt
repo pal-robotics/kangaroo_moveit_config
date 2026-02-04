@@ -1,10 +1,21 @@
-cmake_minimum_required(VERSION 3.1.3)
+cmake_minimum_required(VERSION 3.8)
 project(kangaroo_moveit_config)
 
-find_package(catkin REQUIRED)
+find_package(ament_cmake_auto REQUIRED)
 
-catkin_package()
+ament_auto_find_build_dependencies()
 
-install(DIRECTORY launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-  PATTERN "setup_assistant.launch" EXCLUDE)
-install(DIRECTORY config DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+if(pal_module_cmake_FOUND)
+  pal_register_modules(
+    module/move_group.yaml
+  )
+elseif(DEFINED ENV{PAL_DISTRO})
+  message(FATAL_ERROR "The pal_module_cmake package was not found. Modules not registered.")
+endif()
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
+ament_auto_package(INSTALL_TO_SHARE launch config)
