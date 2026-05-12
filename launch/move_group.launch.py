@@ -62,7 +62,7 @@ class LaunchArguments(LaunchArgumentsBase):
     legs_type: DeclareLaunchArgument = KangarooArgs.legs_type
     
     # ["cover", "fake-forearm", "ft-gripper", "gripper", "RA8D"]
-    end_effector_type: DeclareLaunchArgument = KangarooArgs.end_effector_type
+    end_effector_type: DeclareLaunchArgument = KangarooArgs.end_effector_left
 
     # Fixation type ["crane", "fixed", "floating"]
     fixation_type: DeclareLaunchArgument = KangarooArgs.fixation_type
