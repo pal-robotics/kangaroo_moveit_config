@@ -2,8 +2,8 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.2 (2026-05-12)
+------------------
 * Merge branch 'fix/move_group_arguments' into 'humble-devel'
   Fix launch arguments for move group
   See merge request robots/kangaroo_moveit_config!14
