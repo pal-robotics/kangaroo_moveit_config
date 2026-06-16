@@ -57,10 +57,7 @@ class LaunchArguments(LaunchArgumentsBase):
 
     # ["no-arm", "4dof", "5dof", "7dof"]
     arm_type: DeclareLaunchArgument = KangarooArgs.arm_type
-    
-    # ["ft-leg", "leg", "no-leg"]
-    legs_type: DeclareLaunchArgument = KangarooArgs.legs_type
-    
+
     # ["cover", "fake-forearm", "ft-gripper", "gripper", "RA8D"]
     end_effector_type: DeclareLaunchArgument = KangarooArgs.end_effector_left
 
@@ -79,10 +76,10 @@ def start_move_group(context, *args, **kwargs):
     arm_type = read_launch_argument('arm_type', context)
     end_effector_type = read_launch_argument('end_effector_type', context)
     has_pelvis = read_launch_argument('has_pelvis', context)
-    leg_type = read_launch_argument('legs_type', context)
     use_sensor_manager = read_launch_argument('use_sensor_manager', context)
 
-    suffix = '_' + f'{arm_type}_' + f'{end_effector_type}'+ '_' + f'{"with-pelvis" if has_pelvis else "no-pelvis"}_' + f'{leg_type}'
+    suffix = '_' + f'{arm_type}_' + f'{end_effector_type}' + \
+        '_' + f'{"with-pelvis" if has_pelvis else "no-pelvis"}_leg'
 
     # Define SRDF Path and Parameters
     srdf_file_path = Path(
@@ -96,8 +93,7 @@ def start_move_group(context, *args, **kwargs):
     srdf_input_args = {
         'arm_type': arm_type,
         'end_effector_type': end_effector_type,
-        'has_pelvis': has_pelvis,
-        'leg_type': leg_type,
+        'has_pelvis': has_pelvis
     }
 
     # Trajectory Execution Functionality

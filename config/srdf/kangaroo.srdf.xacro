@@ -7,13 +7,10 @@
     xmlns:xacro="http://ros.org/wiki/xacro">
     <xacro:arg name="arm_type" default="7dof"/>
     <xacro:arg name="has_pelvis" default="True"/>
-    <xacro:arg name="leg_type" default="leg"/>
     <xacro:arg name="end_effector_type" default="no-end-effector"/>
     
     <xacro:property name="arm_type" value="$(arg arm_type)"/>
     <xacro:property name="has_pelvis" value="$(arg has_pelvis)"/>
-    <xacro:property name="leg_type" value="$(arg leg_type)"/>
-    <xacro:property name="has_leg" value="${leg_type not in ['no-leg']}"/>
     <xacro:property name="end_effector_type" value="$(arg end_effector_type)"/>
     <xacro:property name="has_arm" value="${arm_type not in ['no-arm']}"/>
     <xacro:property name="has_end_effector" value="${end_effector_type not in ['no-end-effector']}"/>
@@ -90,19 +87,15 @@
         <passive_joint name="leg_${side}_knee_joint" />
     </xacro:macro>
 
-    <xacro:if value="${has_leg}">
-        <xacro:leg_groups side="left"/>
-        <xacro:leg_groups side="right"/>
-        <group name="both_legs">
-            <group name="leg_right" />
-            <group name="leg_left" />
-        </group>
-    </xacro:if>
+    <xacro:leg_groups side="left"/>
+    <xacro:leg_groups side="right"/>
+    <group name="both_legs">
+        <group name="leg_right" />
+        <group name="leg_left" />
+    </group>
 
     <group name="full">
-        <xacro:if value="${has_leg}">
-            <group name="both_legs" />    
-        </xacro:if>
+        <group name="both_legs" />    
         <xacro:if value="${has_pelvis}">
             <group name="pelvis" />
         </xacro:if>
@@ -145,6 +138,6 @@
     
 
     <!-- <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${end_effector_type}_${'with_pelvis' if has_pelvis else 'no_pelvis'}.srdf.xacro" /> -->
-    <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${'with-pelvis' if has_pelvis else 'no-pelvis'}_${leg_type}.srdf.xacro" />
+    <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${'with-pelvis' if has_pelvis else 'no-pelvis'}_leg.srdf.xacro" />
 
 </robot>

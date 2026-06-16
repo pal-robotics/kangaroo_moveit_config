@@ -36,23 +36,23 @@ function get_name() {
 prefix="${robot}"
 args=()
 # legs only
-generate_disable_collisions "${prefix}_no-arms_no-pelvis_leg" "" "${args[@]}" arm_type:="no-arm" has_pelvis:="False" leg_type:="leg" end_effector_type:="cover"
+generate_disable_collisions "${prefix}_no-arms_no-pelvis_leg" "" "${args[@]}" arm_type:="no-arm" has_pelvis:="False" end_effector_type:="cover"
 
-# legs & pelvis only
-generate_disable_collisions "${prefix}_no-arms_with-pelvis_leg" "${prefix}_no-arms_no-pelvis_leg" "${args[@]}" arm_type:="no-arm" has_pelvis:="True" leg_type:="leg" end_effector_type:="cover"
-# legs & arms_4dof only
-generate_disable_collisions "${prefix}_4dof_no-pelvis_leg" "${prefix}_no-arms_no-pelvis_leg" "${args[@]}" arm_type:="4dof" has_pelvis:="False" leg_type:="leg" end_effector_type:="fake-forearm"
-# legs & arms_5dof only
-generate_disable_collisions "${prefix}_5dof_no-pelvis_leg" "${prefix}_4dof_no-pelvis_leg" "${args[@]}" arm_type:="5dof" has_pelvis:="False" leg_type:="leg" end_effector_type:="no-end-effector"
-# legs & arms_7dof only 
-generate_disable_collisions "${prefix}_7dof_no-pelvis_leg" "${prefix}_5dof_no-pelvis_leg" "${args[@]}" arm_type:="7dof" has_pelvis:="False" leg_type:="leg" end_effector_type:="no-end-effector"
+# pelvis only
+generate_disable_collisions "${prefix}_no-arms_with-pelvis_leg" "${prefix}_no-arms_no-pelvis_leg" "${args[@]}" arm_type:="no-arm" has_pelvis:="True" end_effector_type:="cover"
+# arms_4dof only
+generate_disable_collisions "${prefix}_4dof_no-pelvis_leg" "${prefix}_no-arms_no-pelvis_leg" "${args[@]}" arm_type:="4dof" has_pelvis:="False" end_effector_type:="fake-forearm"
+# arms_5dof only
+generate_disable_collisions "${prefix}_5dof_no-pelvis_leg" "${prefix}_4dof_no-pelvis_leg" "${args[@]}" arm_type:="5dof" has_pelvis:="False" end_effector_type:="no-end-effector"
+# arms_7dof only 
+generate_disable_collisions "${prefix}_7dof_no-pelvis_leg" "${prefix}_5dof_no-pelvis_leg" "${args[@]}" arm_type:="7dof" has_pelvis:="False" end_effector_type:="no-end-effector"
 
-# legs & pelvis & arms_4dof
-generate_disable_collisions "${prefix}_4dof_with-pelvis_leg" "${prefix}_no-arms_with-pelvis_leg" "${args[@]}" arm_type:="4dof" has_pelvis:="True" leg_type:="leg" end_effector_type:="fake-forearm"
-# legs & pelvis & arms_5dof
-generate_disable_collisions "${prefix}_5dof_with-pelvis_leg" "${prefix}_4dof_with-pelvis_leg" "${args[@]}" arm_type:="5dof" has_pelvis:="True" leg_type:="leg" end_effector_type:="no-end-effector"
-# legs & pelvis & arms_7dof
-generate_disable_collisions "${prefix}_7dof_with-pelvis_leg" "${prefix}_5dof_with-pelvis_leg" "${args[@]}" arm_type:="7dof" has_pelvis:="True" leg_type:="leg" end_effector_type:="no-end-effector"
+# pelvis & arms_4dof
+generate_disable_collisions "${prefix}_4dof_with-pelvis_leg" "${prefix}_no-arms_with-pelvis_leg" "${args[@]}" arm_type:="4dof" has_pelvis:="True" end_effector_type:="fake-forearm"
+# pelvis & arms_5dof
+generate_disable_collisions "${prefix}_5dof_with-pelvis_leg" "${prefix}_4dof_with-pelvis_leg" "${args[@]}" arm_type:="5dof" has_pelvis:="True" end_effector_type:="no-end-effector"
+# pelvis & arms_7dof
+generate_disable_collisions "${prefix}_7dof_with-pelvis_leg" "${prefix}_5dof_with-pelvis_leg" "${args[@]}" arm_type:="7dof" has_pelvis:="True" end_effector_type:="no-end-effector"
 
 # generate_disable_collisions "${prefix}_4dof_with-pelvis_no-legs" "${prefix}_no-arm-left_no-arm-right" "${args[@]}" arm_type_left:="no-arm" # pelvis & arms_4dof
 # generate_disable_collisions "${prefix}_5dof_with-pelvis_no-legs" "${prefix}_no-arm-left_no-arm-right" "${args[@]}" arm_type_left:="no-arm" # pelvis & arms_5dof

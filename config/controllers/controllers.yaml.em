@@ -5,10 +5,8 @@ moveit_simple_controller_manager:
     - arm_left_controller
     - arm_right_controller
 @[end if]@
-@[if has_legs]@
     - leg_left_controller
     - leg_right_controller
-@[end if]@
 @[if has_pelvis]@
     - pelvis_controller
 @[end if]@
@@ -65,7 +63,6 @@ moveit_simple_controller_manager:
       - pelvis_1_joint
       - pelvis_2_joint
 @[end if]@
-@[if has_legs]@
   leg_left_controller:
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
@@ -88,7 +85,7 @@ moveit_simple_controller_manager:
       - leg_right_length_joint
       - leg_right_4_joint
       - leg_right_5_joint
-@[end if]@
+
 @[if end_effector == "gripper"]@
   gripper_left_controller:
     action_ns: follow_joint_trajectory
