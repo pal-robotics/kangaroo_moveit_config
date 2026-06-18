@@ -6,7 +6,6 @@ moveit_simple_controller_manager:
     - arm_right_controller
     - leg_left_controller
     - leg_right_controller
-    - pelvis_controller
     - hand_left_controller
     - hand_right_controller
   arm_left_controller:
@@ -29,13 +28,6 @@ moveit_simple_controller_manager:
       - arm_right_3_joint
       - arm_right_4_joint
       - arm_right_5_joint
-  pelvis_controller:
-    action_ns: follow_joint_trajectory
-    type: FollowJointTrajectory
-    default: true
-    joints:
-      - pelvis_1_joint
-      - pelvis_2_joint
   leg_left_controller:
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
@@ -58,6 +50,7 @@ moveit_simple_controller_manager:
       - leg_right_length_joint
       - leg_right_4_joint
       - leg_right_5_joint
+
   hand_left_controller:
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
