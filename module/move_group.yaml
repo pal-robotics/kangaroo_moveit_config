@@ -1,5 +1,13 @@
 move_group:
   launch: "kangaroo_moveit_config move_group.launch.py
            arm_type:=@arm_type@
-           end_effector_type:=@end_effector_left@"
-           
+           ankle_ft_right:=@ankle_ft_right@
+           ankle_ft_left:=@ankle_ft_left@
+           end_effector_right:=@end_effector_right@
+           end_effector_left:=@end_effector_left@
+           ft_sensor_right:=@ft_sensor_right@
+           ft_sensor_left:=@ft_sensor_left@
+           has_head:=@has_head@
+           has_pelvis:=@has_pelvis@
+           feet_type:=@feet_type@"
+

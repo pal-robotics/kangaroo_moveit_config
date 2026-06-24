@@ -5,15 +5,29 @@
 -->
 <robot name="kangaroo"
     xmlns:xacro="http://ros.org/wiki/xacro">
-    <xacro:arg name="arm_type" default="7dof"/>
+    <xacro:arg name="ankle_ft_left" default="no-ft-sensor"/>
+    <xacro:arg name="ankle_ft_right" default="no-ft-sensor"/>
+    <xacro:arg name="arm_type" default="4dof"/>
+    <xacro:arg name="end_effector_left" default="no-end-effector"/>
+    <xacro:arg name="end_effector_right" default="no-end-effector"/>
+    <xacro:arg name="feet_type" default="fixed"/>
+    <xacro:arg name="ft_sensor_left" default="no-ft-sensor"/>
+    <xacro:arg name="ft_sensor_right" default="no-ft-sensor"/>
     <xacro:arg name="has_pelvis" default="True"/>
-    <xacro:arg name="end_effector_type" default="no-end-effector"/>
-    
+
+    <xacro:property name="ankle_ft_left" value="$(arg ankle_ft_left)"/>
+    <xacro:property name="ankle_ft_right" value="$(arg ankle_ft_right)"/>
     <xacro:property name="arm_type" value="$(arg arm_type)"/>
     <xacro:property name="has_pelvis" value="$(arg has_pelvis)"/>
-    <xacro:property name="end_effector_type" value="$(arg end_effector_type)"/>
-    <xacro:property name="has_arm" value="${arm_type not in ['no-arm']}"/>
-    <xacro:property name="has_end_effector" value="${end_effector_type not in ['no-end-effector']}"/>
+    <xacro:property name="end_effector_left" value="$(arg end_effector_left)"/>
+    <xacro:property name="end_effector_right" value="$(arg end_effector_right)"/>
+    <xacro:property name="feet_type" value="$(arg feet_type)"/>
+    <!-- Check if the ft_sensor is present -->
+    <xacro:property name="ft_sensor_left" value="$(arg ft_sensor_left)"/>
+    <xacro:property name="has_ft_sensor_left" value="${ft_sensor_left != 'no-ft-sensor'}"/>
+    <xacro:property name="ft_sensor_right" value="$(arg ft_sensor_right)"/>
+    <xacro:property name="has_ft_sensor_right" value="${ft_sensor_right != 'no-ft-sensor'}"/>
+    <xacro:property name="has_arm" value="${arm_type != 'no-arm'}"/>
 
     <!-- https://answers.ros.org/question/276062/adding-objects-in-moveit-fixed-in-the-world-while-the-mobile-manipulator-is-moving-confusion-with-root_joint-planning_frame-and-srdf-structure/ -->
     <xacro:property name="robot" value="kangaroo"/>
@@ -104,40 +118,74 @@
         </xacro:if>
     </group>
 
-    <!-- END EFFECTOR GROUPS-->
-    <!-- <xacro:macro name="end_effector_for_side" params="side end_effector">
-        <xacro:include filename="$(find pal_sea_arm_moveit_config)/config/srdf/end_effectors/${end_effector}.srdf.xacro" />
+    <!-- Check feet and and_ft_sensors-->
+    <xacro:if value="${feet_type == 'detachable'}">
+        <xacro:if value="${ankle_ft_left != 'no-ft-sensor'}">
+            <xacro:property name="leg_config_left" value="_left_${ankle_ft_left}"/>
+        </xacro:if>
+        <xacro:unless value="${ankle_ft_left != 'no-ft-sensor'}">
+            <xacro:property name="leg_config_left" value=""/>
+        </xacro:unless>
+        <xacro:if value="${ankle_ft_right != 'no-ft-sensor'}">
+            <xacro:property name="leg_config_right" value="_right_${ankle_ft_right}"/>
+        </xacro:if>
+        <xacro:unless value="${ankle_ft_right != 'no-ft-sensor'}">
+            <xacro:property name="leg_config_right" value=""/>
+        </xacro:unless>
+    </xacro:if>
+
+    <!-- ARM END EFFECTOR GROUPS-->
+    <xacro:macro name="end_effector_for_side" params="side end_effector_arg">
+        <xacro:include filename="$(find pal_sea_arm_moveit_config)/config/srdf/end_effectors/${end_effector_arg}.srdf.xacro" />
         <xacro:define_end_effector arm="arm_${side}" name="${end_effector_name}_${side}"/>
     </xacro:macro>
 
-    <xacro:if value="${has_arm_left}">
-        <xacro:end_effector_for_side side="left" end_effector="${end_effector_left}"/>
-        <xacro:if value="${has_ft_sensor_left}">
-            <xacro:property name="config_left" value="${end_effector_left_arg}_${ft_sensor_left}"/>
+    <xacro:property name="left_ee_valid"
+        value="${(arm_type == '4dof' and end_effector_left == 'no-end-effector')
+              or (arm_type == '5dof' and end_effector_left in ['no-end-effector', 'RH8D'])
+              or (arm_type == '7dof' and end_effector_left in ['no-end-effector', 'gripper'])}"/>
+
+    <xacro:property name="right_ee_valid"
+        value="${(arm_type == '4dof' and end_effector_right == 'no-end-effector')
+              or (arm_type == '5dof' and end_effector_right in ['no-end-effector', 'RH8D'])
+              or (arm_type == '7dof' and end_effector_right in ['no-end-effector', 'gripper'])}"/>
+
+    <xacro:if value="${has_arm}">
+        <xacro:if value="${left_ee_valid}">
+            <xacro:end_effector_for_side
+                side="left"
+                end_effector_arg="${end_effector_left}"/>
+
+            <xacro:property name="ee_left_config" value="${'no-ee' if end_effector_left == 'no-end-effector' else end_effector_left}"/>
+            <xacro:property
+                name="config_left"
+                value="${ee_left_config + ('_' + ft_sensor_left if has_ft_sensor_left else '')}"/>
         </xacro:if>
-        <xacro:unless value="${has_ft_sensor_left}">
-            <xacro:property name="config_left" value="${end_effector_left_arg}"/>
+        <xacro:unless value="${left_ee_valid}">
+            <xacro:property name="config_left" value="no-ee"/>
         </xacro:unless>
+
+        <xacro:if value="${right_ee_valid}">
+            <xacro:end_effector_for_side
+                side="right"
+                end_effector_arg="${end_effector_right}"/>
+
+            <xacro:property name="ee_right_config" value="${'no-ee' if end_effector_right == 'no-end-effector' else end_effector_right}"/>
+            <xacro:property
+                name="config_right"
+                value="${ee_right_config + ('_' + ft_sensor_right if has_ft_sensor_right else '')}"/>
+        </xacro:if>
+        <xacro:unless value="${right_ee_valid}">
+            <xacro:property name="config_right" value="no-ee"/>
+        </xacro:unless>
+
     </xacro:if>
-    <xacro:unless value="${has_arm_left}">
+    <xacro:unless value="${has_arm}">
         <xacro:property name="config_left" value="no-arm-left"/>
+        <xacro:property name="config_right" value="no-arm-right"/>
     </xacro:unless>
 
-    <xacro:if value="${has_arm_right}">
-        <xacro:end_effector_for_side side="right" end_effector="${end_effector_right}"/>
-        <xacro:if value="${has_ft_sensor_right}">
-            <xacro:property name="config_right" value="${end_effector_right_arg}_${ft_sensor_right}"/>
-        </xacro:if>
-        <xacro:unless value="${has_ft_sensor_right}">
-            <xacro:property name="config_right" value="${end_effector_right_arg}"/>
-        </xacro:unless>
-    </xacro:if>
-    <xacro:unless value="${has_arm_right}">
-        <xacro:property name="config_right" value="no-arm-right"/>
-    </xacro:unless> -->
-    
-
-    <!-- <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${end_effector_type}_${'with_pelvis' if has_pelvis else 'no_pelvis'}.srdf.xacro" /> -->
-    <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${'with-pelvis' if has_pelvis else 'no-pelvis'}_leg.srdf.xacro" />
+    <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${config_left}_${config_right}.srdf.xacro" />
+    <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${'with-pelvis' if has_pelvis else 'no-pelvis'}_${feet_type}-feet.srdf.xacro" />
 
 </robot>

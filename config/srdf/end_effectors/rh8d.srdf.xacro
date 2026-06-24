@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:property name="end_effector_name" value="rh8d" />
+    
+    <xacro:macro name="define_end_effector" params="arm name">
+        <group name="rh8d_${side}">
+            <!-- Palm joints-->
+            <joint name="rh8d_${side}_roll_joint"/>
+            <joint name="rh8d_${side}_pitch_joint"/>
+            <!-- Thumb joints-->
+            <joint name="rh8d_${side}_base_joint"/>
+            <joint name="rh8d_${side}_methacarpal_joint"/>
+            <joint name="rh8d_${side}_proximal_joint"/>
+            <joint name="rh8d_${side}_distal_joint"/>
+            <!-- Finger joints-->
+            <joint name="rh8d_${side}_index_prox_joint"/>
+            <joint name="rh8d_${side}_index_mid_joint"/>
+            <joint name="rh8d_${side}_index_dis_joint"/>
+            <joint name="rh8d_${side}_middle_prox_joint"/>
+            <joint name="rh8d_${side}_middle_mid_joint"/>
+            <joint name="rh8d_${side}_middle_dis_joint"/>
+            <joint name="rh8d_${side}_ring_prox_joint"/>
+            <joint name="rh8d_${side}_ring_mid_joint"/>
+            <joint name="rh8d_${side}_ring_dis_joint"/>
+            <joint name="rh8d_${side}_small_prox_joint"/>
+            <joint name="rh8d_${side}_small_mid_joint"/>
+            <joint name="rh8d_${side}_small_dis_joint"/>
+
+        </group>
+      </xacro:macro>
+      
+</robot>

@@ -45,7 +45,6 @@ class LaunchArguments(LaunchArgumentsBase):
 
     # ["mujoco-ros2-control", "mujoco", "no-simulation"]
     sim_type: DeclareLaunchArgument = KangarooArgs.sim_type
-     
 
     # ["mesh", "capsule"]
     collision_type: DeclareLaunchArgument = KangarooArgs.collision_type
@@ -58,8 +57,19 @@ class LaunchArguments(LaunchArgumentsBase):
     # ["no-arm", "4dof", "5dof", "7dof"]
     arm_type: DeclareLaunchArgument = KangarooArgs.arm_type
 
-    # ["cover", "fake-forearm", "ft-gripper", "gripper", "RA8D"]
-    end_effector_type: DeclareLaunchArgument = KangarooArgs.end_effector_left
+    # ["no-end-effector", "fake-forearm", "gripper", "RH8D"]
+    end_effector_left: DeclareLaunchArgument = KangarooArgs.end_effector_left
+    end_effector_right: DeclareLaunchArgument = KangarooArgs.end_effector_right
+
+    # ["no-ft-sensor", "ati"]
+    ankle_ft_left: DeclareLaunchArgument = KangarooArgs.ankle_ft_left
+    ankle_ft_right: DeclareLaunchArgument = KangarooArgs.ankle_ft_right
+
+    ft_sensor_right: DeclareLaunchArgument = KangarooArgs.ft_sensor_right
+    ft_sensor_left: DeclareLaunchArgument = KangarooArgs.ft_sensor_left
+
+    # ["fixed", "detachable"]
+    feet_type: DeclareLaunchArgument = KangarooArgs.feet_type
 
     # Fixation type ["crane", "fixed", "floating"]
     fixation_type: DeclareLaunchArgument = KangarooArgs.fixation_type
@@ -71,15 +81,17 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
 
     return
 
+
 def start_move_group(context, *args, **kwargs):
 
     arm_type = read_launch_argument('arm_type', context)
-    end_effector_type = read_launch_argument('end_effector_type', context)
+    end_effector_left = read_launch_argument('end_effector_left', context)
+    end_effector_right = read_launch_argument('end_effector_right', context)
     has_pelvis = read_launch_argument('has_pelvis', context)
     use_sensor_manager = read_launch_argument('use_sensor_manager', context)
 
-    suffix = '_' + f'{arm_type}_' + f'{end_effector_type}' + \
-        '_' + f'{"with-pelvis" if has_pelvis else "no-pelvis"}_leg'
+    suffix = '_' + f'{arm_type}_' + f'{end_effector_right}' + \
+        '_' + f'{"with-pelvis" if has_pelvis else "no-pelvis"}'
 
     # Define SRDF Path and Parameters
     srdf_file_path = Path(
@@ -91,8 +103,14 @@ def start_move_group(context, *args, **kwargs):
     )
 
     srdf_input_args = {
-        'arm_type': arm_type,
-        'end_effector_type': end_effector_type,
+        'ankle_ft_left': read_launch_argument('ankle_ft_left', context),
+        'ankle_ft_right': read_launch_argument('ankle_ft_right', context),
+        'arm_type': read_launch_argument('arm_type', context),
+        'end_effector_left': end_effector_left,
+        'end_effector_right': end_effector_right,
+        'feet_type': read_launch_argument('feet_type', context),
+        'ft_sensor_left': read_launch_argument('ft_sensor_left', context),
+        'ft_sensor_right': read_launch_argument('ft_sensor_right', context),
         'has_pelvis': has_pelvis
     }
 
@@ -114,7 +132,7 @@ def start_move_group(context, *args, **kwargs):
         .robot_description_kinematics(file_path=os.path.join('config', 'kinematics_kdl.yaml'))
         .trajectory_execution(moveit_simple_controllers_path)
         .joint_limits(file_path=os.path.join('config', 'joint_limits.yaml'))
-        .planning_pipelines(pipelines=['ompl'], default_planning_pipeline='ompl')
+        .planning_pipelines(pipelines=['ompl', 'chomp'], default_planning_pipeline='ompl')
         .planning_scene_monitor(planning_scene_monitor_parameters)
         .pilz_cartesian_limits(file_path=os.path.join('config', 'pilz_cartesian_limits.yaml'))
     )
@@ -132,6 +150,7 @@ def start_move_group(context, *args, **kwargs):
         'use_sim_time': LaunchConfiguration('use_sim_time'),
         'publish_robot_description_semantic': True,
         'robot_description_timeout': 60.0,
+        'capabilities': "move_group/ExecuteTaskSolutionCapability"
     }
 
     move_group_params = [
