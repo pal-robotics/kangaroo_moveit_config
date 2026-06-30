@@ -31,7 +31,7 @@ from ament_index_python.packages import get_package_share_directory
 
 @dataclass(frozen=True)
 class LaunchArguments(LaunchArgumentsBase):
-    ## Common
+    # Common
 
     # ["True", "False"]
     use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
@@ -40,8 +40,8 @@ class LaunchArguments(LaunchArgumentsBase):
 
     # ["false", "position", "motor"]
     mj_control: DeclareLaunchArgument = CommonArgs.mj_control
-    
-    ## Kangaroo specific
+
+    # Kangaroo specific
 
     # ["mujoco-ros2-control", "mujoco", "no-simulation"]
     sim_type: DeclareLaunchArgument = KangarooArgs.sim_type
@@ -111,7 +111,8 @@ def start_move_group(context, *args, **kwargs):
         'feet_type': read_launch_argument('feet_type', context),
         'ft_sensor_left': read_launch_argument('ft_sensor_left', context),
         'ft_sensor_right': read_launch_argument('ft_sensor_right', context),
-        'has_pelvis': has_pelvis
+        'has_pelvis': has_pelvis,
+        'sim_type': read_launch_argument('sim_type', context),
     }
 
     # Trajectory Execution Functionality

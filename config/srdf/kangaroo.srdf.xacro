@@ -14,6 +14,7 @@
     <xacro:arg name="ft_sensor_left" default="no-ft-sensor"/>
     <xacro:arg name="ft_sensor_right" default="no-ft-sensor"/>
     <xacro:arg name="has_pelvis" default="True"/>
+    <xacro:arg name="sim_type" default="no-simulation"/>
 
     <xacro:property name="ankle_ft_left" value="$(arg ankle_ft_left)"/>
     <xacro:property name="ankle_ft_right" value="$(arg ankle_ft_right)"/>
@@ -28,6 +29,7 @@
     <xacro:property name="ft_sensor_right" value="$(arg ft_sensor_right)"/>
     <xacro:property name="has_ft_sensor_right" value="${ft_sensor_right != 'no-ft-sensor'}"/>
     <xacro:property name="has_arm" value="${arm_type != 'no-arm'}"/>
+    <xacro:property name="sim_type" value="$(arg sim_type)"/>
 
     <!-- https://answers.ros.org/question/276062/adding-objects-in-moveit-fixed-in-the-world-while-the-mobile-manipulator-is-moving-confusion-with-root_joint-planning_frame-and-srdf-structure/ -->
     <xacro:property name="robot" value="kangaroo"/>
@@ -188,4 +190,21 @@
     <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${config_left}_${config_right}.srdf.xacro" />
     <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${'with-pelvis' if has_pelvis else 'no-pelvis'}_${feet_type}.srdf.xacro" />
 
+    <xacro:if value="${sim_type != 'no-simulation'}">
+        <!--
+        Closed-loop knee linkage: leg_*_4_link/5_link/femur and leg_<side>_knee_link are
+        tied by leg_<side>_closed_kin_joint, a loop closure that exists only as a MuJoCo
+        <connect> constraint (kangaroo_description/mujoco/mj_tags.xacro). A URDF tree
+        is acyclic, so MoveIt's collision generator never sees the loop and cannot
+        emit these pairs automatically. Mirror the MuJoCo <exclude> pairs it omits.
+        -->
+        <xacro:macro name="leg_closed_loop_disable_collisions" params="side">
+            <disable_collisions link1="leg_${side}_femur_link" link2="leg_${side}_1_link" reason="Adjacent"/>
+            <disable_collisions link1="leg_${side}_femur_link" link2="leg_${side}_4_link" reason="Adjacent"/>
+            <disable_collisions link1="leg_${side}_femur_link" link2="leg_${side}_5_link" reason="Adjacent"/>
+            <disable_collisions link1="leg_${side}_knee_link"  link2="leg_${side}_4_link" reason="Adjacent"/>
+        </xacro:macro>
+        <xacro:leg_closed_loop_disable_collisions side="left"/>
+        <xacro:leg_closed_loop_disable_collisions side="right"/>
+    </xacro:if>
 </robot>
