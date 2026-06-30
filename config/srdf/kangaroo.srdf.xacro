@@ -186,6 +186,6 @@
     </xacro:unless>
 
     <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${config_left}_${config_right}.srdf.xacro" />
-    <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${'with-pelvis' if has_pelvis else 'no-pelvis'}_${feet_type}-feet.srdf.xacro" />
+    <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${'with-pelvis' if has_pelvis else 'no-pelvis'}_${feet_type}.srdf.xacro" />
 
 </robot>
