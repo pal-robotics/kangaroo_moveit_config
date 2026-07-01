@@ -2,8 +2,8 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.3 (2026-07-01)
+------------------
 * Enforce some disable_collisions and fix file path lookup
 * Fix move_group for mujoco simulation disabling collisions for mj_tags.xacro
 * Remove feet suffix from disable_collisions paths
