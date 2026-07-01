@@ -2,6 +2,15 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Enforce some disable_collisions and fix file path lookup
+* Fix move_group for mujoco simulation disabling collisions for mj_tags.xacro
+* Remove feet suffix from disable_collisions paths
+* Fix srdf with new arguments and create new disable_collisions
+* Remove has_legs and legs_type arguments
+* Contributors: Isaac Acevedo, Noel Jimenez
+
 2.0.2 (2026-05-12)
 ------------------
 * Merge branch 'fix/move_group_arguments' into 'humble-devel'
