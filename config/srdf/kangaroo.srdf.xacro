@@ -95,8 +95,6 @@
             <joint name="leg_${side}_length_joint" />
             <joint name="leg_${side}_4_joint" />
             <joint name="leg_${side}_5_joint" />
-            <link name="leg_${side}_femur_link" />
-            <link name="leg_${side}_knee_link" />
         </group>
         <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
         <passive_joint name="leg_${side}_femur_joint" />
@@ -182,29 +180,44 @@
         </xacro:unless>
 
     </xacro:if>
-    <xacro:unless value="${has_arm}">
-        <xacro:property name="config_left" value="no-arm-left"/>
-        <xacro:property name="config_right" value="no-arm-right"/>
-    </xacro:unless>
-
-    <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${config_left}_${config_right}.srdf.xacro" />
-    <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${'with-pelvis' if has_pelvis else 'no-pelvis'}_${feet_type}.srdf.xacro" />
-
-    <xacro:if value="${sim_type != 'no-simulation'}">
-        <!--
-        Closed-loop knee linkage: leg_*_4_link/5_link/femur and leg_<side>_knee_link are
-        tied by leg_<side>_closed_kin_joint, a loop closure that exists only as a MuJoCo
-        <connect> constraint (kangaroo_description/mujoco/mj_tags.xacro). A URDF tree
-        is acyclic, so MoveIt's collision generator never sees the loop and cannot
-        emit these pairs automatically. Mirror the MuJoCo <exclude> pairs it omits.
-        -->
-        <xacro:macro name="leg_closed_loop_disable_collisions" params="side">
-            <disable_collisions link1="leg_${side}_femur_link" link2="leg_${side}_1_link" reason="Adjacent"/>
-            <disable_collisions link1="leg_${side}_femur_link" link2="leg_${side}_4_link" reason="Adjacent"/>
-            <disable_collisions link1="leg_${side}_femur_link" link2="leg_${side}_5_link" reason="Adjacent"/>
-            <disable_collisions link1="leg_${side}_knee_link"  link2="leg_${side}_4_link" reason="Adjacent"/>
-        </xacro:macro>
-        <xacro:leg_closed_loop_disable_collisions side="left"/>
-        <xacro:leg_closed_loop_disable_collisions side="right"/>
+    <xacro:if value="${has_arm}">
+        <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${config_left}_${config_right}.srdf.xacro" />
     </xacro:if>
+    <xacro:property name="base_arm_token" value="${arm_type if has_arm else 'no-arms'}"/>
+    <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${base_arm_token}_${'with-pelvis' if has_pelvis else 'no-pelvis'}_${feet_type}.srdf.xacro" />
+
+    <!-- NOTE: from here onwards there are manual disabled collision -->
+    <!-- TODO: This needs to be handled properly with the update.sh script -->
+    <xacro:macro name="back_handle_leg_disable_collisions" params="side">
+        <disable_collisions link1="back_handle" link2="leg_${side}_1_link" reason="Never"/>
+    </xacro:macro>
+    <xacro:back_handle_leg_disable_collisions side="left"/>
+    <xacro:back_handle_leg_disable_collisions side="right"/>
+
+    <xacro:if value="${has_pelvis}">
+        <xacro:macro name="pelvis_leg_disable_collisions" params="side">
+            <disable_collisions link1="pelvis_base_link" link2="leg_${side}_1_link" reason="Never"/>
+            <disable_collisions link1="pelvis_1_link" link2="leg_${side}_1_link" reason="Never"/>
+            <disable_collisions link1="pelvis_2_link" link2="leg_${side}_1_link" reason="Never"/>
+        </xacro:macro>
+        <xacro:pelvis_leg_disable_collisions side="left"/>
+        <xacro:pelvis_leg_disable_collisions side="right"/>
+    </xacro:if>
+
+    <xacro:macro name="leg_closed_loop_disable_collisions" params="side">
+        <disable_collisions link1="base_link"               link2="leg_${side}_femur_link" reason="Never"/>
+        <disable_collisions link1="leg_${side}_1_link"      link2="leg_${side}_femur_link" reason="Never"/>
+        <disable_collisions link1="leg_${side}_3_link"      link2="leg_${side}_femur_link" reason="Never"/>
+        <disable_collisions link1="leg_${side}_3_link"      link2="leg_${side}_knee_link"  reason="Never"/>
+        <disable_collisions link1="leg_${side}_4_link"      link2="leg_${side}_femur_link" reason="Never"/>
+        <disable_collisions link1="leg_${side}_4_link"      link2="leg_${side}_knee_link"  reason="Never"/>
+        <disable_collisions link1="leg_${side}_5_link"      link2="leg_${side}_femur_link" reason="Never"/>
+        <disable_collisions link1="leg_${side}_5_link"      link2="leg_${side}_knee_link"  reason="Never"/>
+        <disable_collisions link1="leg_${side}_femur_link"  link2="leg_${side}_knee_link"  reason="Never"/>
+    </xacro:macro>
+    <xacro:leg_closed_loop_disable_collisions side="left"/>
+    <xacro:leg_closed_loop_disable_collisions side="right"/>
+
+    <disable_collisions link1="leg_right_1_link" link2="leg_left_1_link" reason="Never"/>
+    <disable_collisions link1="leg_right_1_link" link2="leg_right_3_link" reason="Never"/>
 </robot>
