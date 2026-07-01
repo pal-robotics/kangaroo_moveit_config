@@ -10,10 +10,60 @@ for end_effector_file in "$moveit_srdf"/end_effectors/*.srdf.xacro; do
      end_effectors+=($(basename "$end_effector_file" .srdf.xacro))
 done
 
-# crawl all end effectors and generate the corresponding subtree SRDF
-for end_effector in "${end_effectors[@]}"; do
-    for side in left right; do
-        generate_disable_collisions_subtree "arm_${side}_tool_link" "${side}_${end_effector}"  "" "${args[@]}"
+ft_sensors=(no-ft-sensor ati)
+
+get_valid_end_effectors() {
+    local arm_type="$1"
+    local -n result="$2"
+
+    case "$arm_type" in
+        4dof) result=("no-end-effector") ;;
+        5dof) result=("no-end-effector" "RH8D") ;;
+        7dof) result=("no-end-effector" "gripper") ;;
+        *) result=() ;;
+    esac
+}
+
+# crawl all end effectors and ft_sensors and generate the corresponding subtree SRDF
+for arm_type in 4dof 5dof 7dof; do
+
+    get_valid_end_effectors "$arm_type" valid_end_effectors
+
+    for end_effector in "${valid_end_effectors[@]}"; do
+
+        if [ "$end_effector" = "no-end-effector" ]; then
+            end_effector_value="no-ee"
+        else
+            end_effector_value="$end_effector"
+        fi
+
+        for ft_sensor in "${ft_sensors[@]}"; do
+
+            args=(
+                "arm_type:=$arm_type"
+                "ft_sensor_left:=$ft_sensor"
+                "ft_sensor_right:=$ft_sensor"
+                "end_effector_left:=$end_effector"
+                "end_effector_right:=$end_effector"
+            )
+
+            for side in left right; do
+
+                if [ "$ft_sensor" != "no-ft-sensor" ]; then
+                    generate_disable_collisions_subtree \
+                        "arm_${side}_tool_link" \
+                        "${side}_${arm_type}_${end_effector_value}_${ft_sensor}" \
+                        "${side}_${arm_type}_${end_effector_value}" \
+                        "${args[@]}"
+                else
+                    generate_disable_collisions_subtree \
+                        "arm_${side}_tool_link" \
+                        "${side}_${arm_type}_${end_effector_value}" \
+                        "" \
+                        "${args[@]}"
+                fi
+            done
+        done
     done
 done
 
@@ -34,62 +84,74 @@ function get_name() {
 
 # Generate base disable collision pairs
 prefix="${robot}"
-args=()
-# legs only
-generate_disable_collisions "${prefix}_no-arms_no-pelvis_leg" "" "${args[@]}" arm_type:="no-arm" has_pelvis:="False" end_effector_type:="cover"
+args=(ft_sensor_left:="no-ft-sensor" ft_sensor_right:="no-ft-sensor" end_effector_left:="no-end-effector" end_effector_right:="no-end-effector")
 
-# pelvis only
-generate_disable_collisions "${prefix}_no-arms_with-pelvis_leg" "${prefix}_no-arms_no-pelvis_leg" "${args[@]}" arm_type:="no-arm" has_pelvis:="True" end_effector_type:="cover"
-# arms_4dof only
-generate_disable_collisions "${prefix}_4dof_no-pelvis_leg" "${prefix}_no-arms_no-pelvis_leg" "${args[@]}" arm_type:="4dof" has_pelvis:="False" end_effector_type:="fake-forearm"
-# arms_5dof only
-generate_disable_collisions "${prefix}_5dof_no-pelvis_leg" "${prefix}_4dof_no-pelvis_leg" "${args[@]}" arm_type:="5dof" has_pelvis:="False" end_effector_type:="no-end-effector"
-# arms_7dof only 
-generate_disable_collisions "${prefix}_7dof_no-pelvis_leg" "${prefix}_5dof_no-pelvis_leg" "${args[@]}" arm_type:="7dof" has_pelvis:="False" end_effector_type:="no-end-effector"
+# legs only with fixed feet
+generate_disable_collisions "${prefix}_no-arms_no-pelvis_fixed" "" "${args[@]}" arm_type:="no-arm" has_pelvis:="False" feet_type:="fixed"
+# arms 4dof only with fixed feet
+generate_disable_collisions "${prefix}_4dof_no-pelvis_fixed" "${prefix}_no-arms_no-pelvis_fixed" "${args[@]}" arm_type:="4dof" has_pelvis:="False" feet_type:="fixed"
+# arms 5dof only with fixed feet
+generate_disable_collisions "${prefix}_5dof_no-pelvis_fixed" "${prefix}_4dof_no-pelvis_fixed" "${args[@]}" arm_type:="5dof" has_pelvis:="False" feet_type:="fixed"
+# arms 7dof only with fixed feet
+generate_disable_collisions "${prefix}_7dof_no-pelvis_fixed" "${prefix}_5dof_no-pelvis_fixed" "${args[@]}" arm_type:="7dof" has_pelvis:="False" feet_type:="fixed"
 
-# pelvis & arms_4dof
-generate_disable_collisions "${prefix}_4dof_with-pelvis_leg" "${prefix}_no-arms_with-pelvis_leg" "${args[@]}" arm_type:="4dof" has_pelvis:="True" end_effector_type:="fake-forearm"
-# pelvis & arms_5dof
-generate_disable_collisions "${prefix}_5dof_with-pelvis_leg" "${prefix}_4dof_with-pelvis_leg" "${args[@]}" arm_type:="5dof" has_pelvis:="True" end_effector_type:="no-end-effector"
-# pelvis & arms_7dof
-generate_disable_collisions "${prefix}_7dof_with-pelvis_leg" "${prefix}_5dof_with-pelvis_leg" "${args[@]}" arm_type:="7dof" has_pelvis:="True" end_effector_type:="no-end-effector"
 
-# generate_disable_collisions "${prefix}_4dof_with-pelvis_no-legs" "${prefix}_no-arm-left_no-arm-right" "${args[@]}" arm_type_left:="no-arm" # pelvis & arms_4dof
-# generate_disable_collisions "${prefix}_5dof_with-pelvis_no-legs" "${prefix}_no-arm-left_no-arm-right" "${args[@]}" arm_type_left:="no-arm" # pelvis & arms_5dof
-# generate_disable_collisions "${prefix}_7dof_with-pelvis_no-legs" "${prefix}_no-arm-left_no-arm-right" "${args[@]}" arm_type_left:="no-arm" # pelvis & arms_7dof
+# legs with pelvis with fixed feet
+generate_disable_collisions "${prefix}_no-arms_with-pelvis_fixed" "${prefix}_no-arms_no-pelvis_fixed" "${args[@]}" arm_type:="no-arm" has_pelvis:="True" feet_type:="fixed"
+# arms 4dof with pelvis with fixed feet
+generate_disable_collisions "${prefix}_4dof_with-pelvis_fixed" "${prefix}_no-arms_with-pelvis_fixed" "${args[@]}" arm_type:="4dof" has_pelvis:="True" feet_type:="fixed"
+# arms 5dof with pelvis with fixed feet
+generate_disable_collisions "${prefix}_5dof_with-pelvis_fixed" "${prefix}_4dof_with-pelvis_fixed" "${args[@]}" arm_type:="5dof" has_pelvis:="True" feet_type:="fixed"
+# arms 7dof with pelvis with fixed feet
+generate_disable_collisions "${prefix}_7dof_with-pelvis_fixed" "${prefix}_5dof_with-pelvis_fixed" "${args[@]}" arm_type:="7dof" has_pelvis:="True" feet_type:="fixed"
 
-# # Generate disable collision for single arm configurations
-# for end_effector in "${end_effectors[@]}"; do
-#     for ft_sensor in "${ft_sensors[@]}"; do
-#         name="$(get_name "$end_effector" "$ft_sensor")"
-#         generate_srdf "${prefix}_${name}_no-arm-right" \
-#                         "${prefix}_no-arm-right:left_${name}" \
-#                         arm_type_right:="no-arm" \
-#                         ft_sensor_left:="$ft_sensor"\
-#                         ft_sensor_right:="no-ft-sensor" \
-#                         end_effector_left:="$end_effector" \
-#                         end_effector_right:="no-end-effector" \
-#                         wrist_model_left:="spherical-wrist"
 
-#         generate_srdf "${prefix}_no-arm-left_${name}" \
-#                         "${prefix}_no-arm-left:right_${name}" \
-#                         arm_type_left:="no-arm" \
-#                         ft_sensor_left:="no-ft-sensor" \
-#                         ft_sensor_right:="$ft_sensor" \
-#                         end_effector_left:="no-end-effector" \
-#                         end_effector_right:="$end_effector" \
-#                         wrist_model_right:="spherical-wrist"
-#     done
-# done
+# legs only with detachable feet
+generate_disable_collisions "${prefix}_no-arms_no-pelvis_detachable" "" "${args[@]}" arm_type:="no-arm" has_pelvis:="False" feet_type:="detachable"
+# arms 4dof only with detachable feet
+generate_disable_collisions "${prefix}_4dof_no-pelvis_detachable" "${prefix}_no-arms_no-pelvis_detachable" "${args[@]}" arm_type:="4dof" has_pelvis:="False" feet_type:="detachable"
+# arms 5dof only with detachable feet
+generate_disable_collisions "${prefix}_5dof_no-pelvis_detachable" "${prefix}_4dof_no-pelvis_detachable" "${args[@]}" arm_type:="5dof" has_pelvis:="False" feet_type:="detachable"
+# arms 7dof only with detachable feet
+generate_disable_collisions "${prefix}_7dof_no-pelvis_detachable" "${prefix}_5dof_no-pelvis_detachable" "${args[@]}" arm_type:="7dof" has_pelvis:="False" feet_type:="detachable"  
 
-# Generate disable collision for dual arm configurations
-# for end_effector in "${end_effectors[@]}"; do
-#     left_name=$end_effector
-#     right_name=$end_effector
-#     generate_srdf "${prefix}_${left_name}_${right_name}" \
-#                     "${prefix}_no-ee_no-ee:${prefix}_${left_name}_no-arm-right:${prefix}_no-arm-left_${right_name}" \
-#                     ft_sensor_left:="$ft_sensor_left" \
-#                     has_pelvis:="$ft_sensor_right" \
-#                     end_effector_type:="$end_effector_left" \
-                    
-# done
+
+# legs with pelvis with detachable feet
+generate_disable_collisions "${prefix}_no-arms_with-pelvis_detachable" "${prefix}_no-arms_no-pelvis_detachable" "${args[@]}" arm_type:="no-arm" has_pelvis:="True" feet_type:="detachable"
+# arms 4dof with pelvis with detachable feet
+generate_disable_collisions "${prefix}_4dof_with-pelvis_detachable" "${prefix}_no-arms_with-pelvis_detachable" "${args[@]}" arm_type:="4dof" has_pelvis:="True" feet_type:="detachable"
+# arms 5dof with pelvis with detachable feet
+generate_disable_collisions "${prefix}_5dof_with-pelvis_detachable" "${prefix}_4dof_with-pelvis_detachable" "${args[@]}" arm_type:="5dof" has_pelvis:="True" feet_type:="detachable"
+# arms 7dof with pelvis with detachable feet
+generate_disable_collisions "${prefix}_7dof_with-pelvis_detachable" "${prefix}_5dof_with-pelvis_detachable" "${args[@]}" arm_type:="7dof" has_pelvis:="True" feet_type:="detachable"
+
+
+# Generate collisions for arms with different end effectors and ft_sensors
+for arm_type in 4dof 5dof 7dof; do
+
+    get_valid_end_effectors "$arm_type" valid_ee
+
+    for end_effector_left in "${valid_ee[@]}"; do
+        for ft_sensor_left in "${ft_sensors[@]}"; do
+
+            for end_effector_right in "${valid_ee[@]}"; do
+                for ft_sensor_right in "${ft_sensors[@]}"; do
+
+                    left_name="$(get_name "$end_effector_left" "$ft_sensor_left")"
+                    right_name="$(get_name "$end_effector_right" "$ft_sensor_right")"
+                    echo "Generating SRDF for end effectors: $end_effector_left ($ft_sensor_left) and $end_effector_right ($ft_sensor_right)"
+                    generate_srdf \
+                        "${prefix}_${arm_type}_${left_name}_${right_name}" \
+                        "left_${arm_type}_${left_name}:right_${arm_type}_${right_name}" \
+                        arm_type:="$arm_type" \
+                        ft_sensor_left:="$ft_sensor_left" \
+                        ft_sensor_right:="$ft_sensor_right" \
+                        end_effector_left:="$end_effector_left" \
+                        end_effector_right:="$end_effector_right"
+
+                done
+            done
+
+        done
+    done
+done
