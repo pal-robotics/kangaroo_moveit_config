@@ -2,8 +2,8 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.1.0 (2026-07-02)
+------------------
 * Merge branch 'fix/renamed_sole_links/detachable_feet' into 'humble-devel'
   Fix the renamed sole links of the detachable feet
   See merge request robots/kangaroo_moveit_config!18
