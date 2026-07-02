@@ -15,7 +15,7 @@
     <disable_collisions link1="arm_left_4_link" link2="arm_left_tool_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="arm_right_1_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="arm_right_2_link" reason="Never"/>
-    <disable_collisions link1="arm_left_4_link" link2="left_foot_sole" reason="Never"/>
+    <disable_collisions link1="arm_left_4_link" link2="left_sole_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="leg_left_2_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="leg_left_4_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="leg_left_5_link" reason="Never"/>
@@ -31,7 +31,7 @@
     <disable_collisions link1="arm_left_5_link" link2="arm_right_base_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="arm_right_tool_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="left_foot" reason="Never"/>
-    <disable_collisions link1="arm_left_5_link" link2="left_foot_sole" reason="Never"/>
+    <disable_collisions link1="arm_left_5_link" link2="left_sole_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="leg_left_4_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="leg_left_5_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="leg_left_ankle_attach" reason="Never"/>
@@ -47,7 +47,7 @@
     <disable_collisions link1="arm_left_5_link" link2="leg_right_knee_straight" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="leg_right_length_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="right_foot" reason="Never"/>
-    <disable_collisions link1="arm_left_5_link" link2="right_foot_sole" reason="Never"/>
+    <disable_collisions link1="arm_left_5_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="torso_imu_link" reason="Never"/>
@@ -60,7 +60,7 @@
     <disable_collisions link1="arm_right_3_link" link2="arm_right_5_link" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="arm_right_5_link" reason="Adjacent"/>
     <disable_collisions link1="arm_right_4_link" link2="arm_right_tool_link" reason="Never"/>
-    <disable_collisions link1="arm_right_4_link" link2="left_foot_sole" reason="Never"/>
+    <disable_collisions link1="arm_right_4_link" link2="left_sole_link" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="leg_left_2_link" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="leg_left_3_link" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="leg_left_femur_link" reason="Never"/>
@@ -70,11 +70,11 @@
     <disable_collisions link1="arm_right_4_link" link2="leg_right_5_link" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="leg_right_ankle_attach" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="right_foot" reason="Never"/>
-    <disable_collisions link1="arm_right_4_link" link2="right_foot_sole" reason="Never"/>
+    <disable_collisions link1="arm_right_4_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="arm_right_base_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="arm_right_tool_link" reason="Adjacent"/>
     <disable_collisions link1="arm_right_5_link" link2="left_foot" reason="Never"/>
-    <disable_collisions link1="arm_right_5_link" link2="left_foot_sole" reason="Never"/>
+    <disable_collisions link1="arm_right_5_link" link2="left_sole_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="leg_left_2_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="leg_left_3_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="leg_left_4_link" reason="Never"/>
@@ -91,7 +91,7 @@
     <disable_collisions link1="arm_right_5_link" link2="leg_right_knee_straight" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="leg_right_length_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="right_foot" reason="Never"/>
-    <disable_collisions link1="arm_right_5_link" link2="right_foot_sole" reason="Never"/>
+    <disable_collisions link1="arm_right_5_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="torso_imu_link" reason="Never"/>
