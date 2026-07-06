@@ -185,23 +185,4 @@
     </xacro:if>
     <xacro:property name="base_arm_token" value="${arm_type if has_arm else 'no-arms'}"/>
     <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${base_arm_token}_${'with-pelvis' if has_pelvis else 'no-pelvis'}_${feet_type}.srdf.xacro" />
-
-    <!-- NOTE: from here onwards there are manual disabled collision -->
-    <!-- TODO: This needs to be handled properly with the update.sh script -->
-    <xacro:macro name="leg_closed_loop_disable_collisions" params="side">
-        <disable_collisions link1="base_link"               link2="leg_${side}_femur_link" reason="Never"/>
-        <disable_collisions link1="leg_${side}_1_link"      link2="leg_${side}_femur_link" reason="Never"/>
-        <disable_collisions link1="leg_${side}_3_link"      link2="leg_${side}_femur_link" reason="Never"/>
-        <disable_collisions link1="leg_${side}_3_link"      link2="leg_${side}_knee_link"  reason="Never"/>
-        <disable_collisions link1="leg_${side}_4_link"      link2="leg_${side}_femur_link" reason="Never"/>
-        <disable_collisions link1="leg_${side}_4_link"      link2="leg_${side}_knee_link"  reason="Never"/>
-        <disable_collisions link1="leg_${side}_5_link"      link2="leg_${side}_femur_link" reason="Never"/>
-        <disable_collisions link1="leg_${side}_5_link"      link2="leg_${side}_knee_link"  reason="Never"/>
-        <disable_collisions link1="leg_${side}_femur_link"  link2="leg_${side}_knee_link"  reason="Never"/>
-    </xacro:macro>
-    <xacro:leg_closed_loop_disable_collisions side="left"/>
-    <xacro:leg_closed_loop_disable_collisions side="right"/>
-
-    <disable_collisions link1="leg_right_1_link" link2="leg_left_1_link" reason="Never"/>
-    <disable_collisions link1="leg_right_1_link" link2="leg_right_3_link" reason="Never"/>
 </robot>
