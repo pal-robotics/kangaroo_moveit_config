@@ -188,22 +188,6 @@
 
     <!-- NOTE: from here onwards there are manual disabled collision -->
     <!-- TODO: This needs to be handled properly with the update.sh script -->
-    <xacro:macro name="back_handle_leg_disable_collisions" params="side">
-        <disable_collisions link1="back_handle" link2="leg_${side}_1_link" reason="Never"/>
-    </xacro:macro>
-    <xacro:back_handle_leg_disable_collisions side="left"/>
-    <xacro:back_handle_leg_disable_collisions side="right"/>
-
-    <xacro:if value="${has_pelvis}">
-        <xacro:macro name="pelvis_leg_disable_collisions" params="side">
-            <disable_collisions link1="pelvis_base_link" link2="leg_${side}_1_link" reason="Never"/>
-            <disable_collisions link1="pelvis_1_link" link2="leg_${side}_1_link" reason="Never"/>
-            <disable_collisions link1="pelvis_2_link" link2="leg_${side}_1_link" reason="Never"/>
-        </xacro:macro>
-        <xacro:pelvis_leg_disable_collisions side="left"/>
-        <xacro:pelvis_leg_disable_collisions side="right"/>
-    </xacro:if>
-
     <xacro:macro name="leg_closed_loop_disable_collisions" params="side">
         <disable_collisions link1="base_link"               link2="leg_${side}_femur_link" reason="Never"/>
         <disable_collisions link1="leg_${side}_1_link"      link2="leg_${side}_femur_link" reason="Never"/>

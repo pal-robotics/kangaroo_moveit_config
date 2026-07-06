@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<robot name="kangaroo" xmlns:xacro="http://ros.org/wiki/xacro">
+    <disable_collisions link1="back_handle" link2="leg_left_1_link" reason="Never"/>
+    <disable_collisions link1="pelvis_base_link" link2="leg_left_1_link" reason="Never"/>
+    <disable_collisions link1="pelvis_1_link" link2="leg_left_1_link" reason="Never"/>
+    <disable_collisions link1="pelvis_2_link" link2="leg_left_1_link" reason="Never"/>
+    <disable_collisions link1="back_handle" link2="leg_right_1_link" reason="Never"/>
+    <disable_collisions link1="pelvis_base_link" link2="leg_right_1_link" reason="Never"/>
+    <disable_collisions link1="pelvis_1_link" link2="leg_right_1_link" reason="Never"/>
+    <disable_collisions link1="pelvis_2_link" link2="leg_right_1_link" reason="Never"/>
+</robot>
