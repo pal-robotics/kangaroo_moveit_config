@@ -183,6 +183,13 @@
     <xacro:if value="${has_arm}">
         <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${arm_type}_${config_left}_${config_right}.srdf.xacro" />
     </xacro:if>
+
+    <!-- Add manual collisions-->
+    <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/manual_legs_collision.srdf.xacro" />
+    <xacro:if value="${has_pelvis}">
+        <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/manual_pelvis_collision.srdf.xacro" />
+    </xacro:if>
+
     <xacro:property name="base_arm_token" value="${arm_type if has_arm else 'no-arms'}"/>
     <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/${robot}_${base_arm_token}_${'with-pelvis' if has_pelvis else 'no-pelvis'}_${feet_type}.srdf.xacro" />
 </robot>

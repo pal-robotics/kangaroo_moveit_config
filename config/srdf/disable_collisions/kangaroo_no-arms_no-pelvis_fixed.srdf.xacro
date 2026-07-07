@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <robot name="kangaroo" xmlns:xacro="http://ros.org/wiki/xacro">
-    <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/manual_legs_collision.srdf.xacro" />
     <disable_collisions link1="arm_cover_left_cover_link" link2="arm_cover_right_cover_link" reason="Never"/>
     <disable_collisions link1="arm_cover_left_cover_link" link2="base_link" reason="Never"/>
     <disable_collisions link1="arm_cover_left_cover_link" link2="left_foot_lower_left" reason="Never"/>
