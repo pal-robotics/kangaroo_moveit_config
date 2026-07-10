@@ -2,6 +2,18 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'refactor/kangaroo_srdf' into 'humble-devel'
+  Refactor of kangaroo srdf
+  See merge request robots/kangaroo_moveit_config!19
+* Fix typo
+* Include manual collisions in kangaroo srdf
+* Move manual leg collisions to dedicated file
+* Move manual pelvis collisions to dedicated file
+* Remove files that contain feet
+* Contributors: Isaac Acevedo, Noel Jimenez, Sai Kishor Kothakota
+
 2.1.0 (2026-07-02)
 ------------------
 * Merge branch 'fix/renamed_sole_links/detachable_feet' into 'humble-devel'
