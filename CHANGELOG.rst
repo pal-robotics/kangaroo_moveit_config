@@ -2,8 +2,8 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.2.0 (2026-07-10)
+------------------
 * Merge branch 'refactor/kangaroo_srdf' into 'humble-devel'
   Refactor of kangaroo srdf
   See merge request robots/kangaroo_moveit_config!19
