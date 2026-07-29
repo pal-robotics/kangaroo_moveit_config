@@ -2,6 +2,11 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix typo
+* Contributors: Isaac Acevedo
+
 2.2.0 (2026-07-10)
 ------------------
 * Merge branch 'refactor/kangaroo_srdf' into 'humble-devel'
