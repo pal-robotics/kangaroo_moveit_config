@@ -2,6 +2,11 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add missing dependency kangaroo_description
+* Contributors: Noel Jimenez
+
 2.2.1 (2026-07-29)
 ------------------
 * Fix typo
