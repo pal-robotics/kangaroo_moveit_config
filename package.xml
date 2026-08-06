@@ -12,6 +12,7 @@
 
   <build_depend condition="$PAL_DISTRO >= alum">pal_module_cmake</build_depend>
 
+  <exec_depend>kangaroo_description</exec_depend>
   <exec_depend>moveit_kinematics</exec_depend>
   <exec_depend>moveit_planners_ompl</exec_depend>
   <exec_depend>moveit_ros_visualization</exec_depend>
