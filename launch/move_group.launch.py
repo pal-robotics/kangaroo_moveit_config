@@ -21,6 +21,7 @@ from launch.substitutions import LaunchConfiguration
 from launch_pal.arg_utils import read_launch_argument
 from launch_ros.actions import Node
 
+from launch_param_builder import load_yaml
 from moveit_configs_utils import MoveItConfigsBuilder
 from launch_pal.arg_utils import LaunchArgumentsBase
 from launch_pal.robot_arguments import CommonArgs
@@ -73,6 +74,24 @@ class LaunchArguments(LaunchArgumentsBase):
 
     # Fixation type ["crane", "fixed", "floating"]
     fixation_type: DeclareLaunchArgument = KangarooArgs.fixation_type
+
+
+def resolve_ompl_planning_yaml(ros_distro):
+    """Return which OMPL pipeline config file to load for a given ROS distro.
+
+    MoveIt renamed the OMPL planning pipeline's parameters after ROS Humble
+    (see moveit2 MIGRATION.md, [10/2023] entries): the singular
+    ``planning_plugin`` string became a ``planning_plugins`` list, and the
+    flat ``request_adapters`` string was split into separate
+    ``request_adapters`` / ``response_adapters`` lists. Since
+    ``request_adapters`` changes type, both formats can't share one file, so
+    this package ships ``ompl_planning.yaml`` (Humble) and
+    ``ompl_planning_lyrical.yaml`` (Lyrical and newer) side by side.
+
+    :param ros_distro: Value of the ROS_DISTRO environment variable.
+    :return: The config filename (relative to ``config/``) to load.
+    """
+    return 'ompl_planning.yaml' if ros_distro == 'humble' else 'ompl_planning_lyrical.yaml'
 
 
 def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArguments):
@@ -145,7 +164,12 @@ def start_move_group(context, *args, **kwargs):
         moveit_config.sensors_3d(moveit_sensors_path)
 
     # Finalize MoveIt2 Configuration
-    moveit_config.to_moveit_configs()
+    moveit_configs = moveit_config.to_moveit_configs()
+    ompl_planning_yaml_path = (
+        Path(get_package_share_directory('kangaroo_moveit_config'))
+        / 'config' / resolve_ompl_planning_yaml(os.environ.get('ROS_DISTRO'))
+    )
+    moveit_configs.planning_pipelines['ompl'] = load_yaml(ompl_planning_yaml_path)
 
     move_group_configuration = {
         'use_sim_time': LaunchConfiguration('use_sim_time'),
