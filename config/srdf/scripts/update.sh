@@ -19,7 +19,7 @@ get_valid_end_effectors() {
     case "$arm_type" in
         4dof) result=("no-end-effector") ;;
         5dof) result=("no-end-effector" "RH8D") ;;
-        7dof) result=("no-end-effector" "gripper") ;;
+        7dof) result=("no-end-effector" "pal-pro-gripper") ;;
         *) result=() ;;
     esac
 }

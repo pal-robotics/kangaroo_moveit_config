@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="kangaroo" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/left_7dof_gripper_ati.srdf.xacro" />
-  <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/right_7dof_gripper_ati.srdf.xacro" />
+  <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/left_7dof_pal-pro-gripper_ati.srdf.xacro" />
+  <xacro:include filename="$(find kangaroo_moveit_config)/config/srdf/disable_collisions/right_7dof_no-ee.srdf.xacro" />
     <disable_collisions link1="arm_left_1_link" link2="arm_left_2_link" reason="Adjacent"/>
     <disable_collisions link1="arm_left_1_link" link2="arm_left_3_link" reason="Never"/>
     <disable_collisions link1="arm_left_1_link" link2="arm_left_4_link" reason="Never"/>
@@ -19,10 +19,6 @@
     <disable_collisions link1="arm_left_1_link" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="arm_left_1_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_1_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_1_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_left_1_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_1_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_1_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_1_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_left_1_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_left_1_link" link2="left_foot_upper_left" reason="Never"/>
@@ -62,6 +58,7 @@
     <disable_collisions link1="arm_left_1_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="arm_left_1_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_1_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="arm_left_1_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_1_link" link2="torso_link" reason="Default"/>
     <disable_collisions link1="arm_left_1_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_1_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -77,6 +74,7 @@
     <disable_collisions link1="arm_left_2_link" link2="arm_right_1_link" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="arm_right_2_link" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="arm_right_3_link" reason="Never"/>
+    <disable_collisions link1="arm_left_2_link" link2="arm_right_4_link" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="arm_right_base_link" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="arm_right_tool_link" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="back_handle" reason="Never"/>
@@ -84,10 +82,6 @@
     <disable_collisions link1="arm_left_2_link" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_2_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_left_2_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_2_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_2_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="left_foot_upper_left" reason="Never"/>
@@ -127,6 +121,7 @@
     <disable_collisions link1="arm_left_2_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="arm_left_2_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="arm_left_2_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
@@ -150,10 +145,6 @@
     <disable_collisions link1="arm_left_3_link" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="arm_left_3_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_3_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_3_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_left_3_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_3_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_3_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_3_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_left_3_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_left_3_link" link2="left_foot_upper_left" reason="Never"/>
@@ -191,6 +182,7 @@
     <disable_collisions link1="arm_left_3_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_3_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_3_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="arm_left_3_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_3_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_3_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_3_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
@@ -206,13 +198,14 @@
     <disable_collisions link1="arm_left_4_link" link2="arm_right_2_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="arm_right_base_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="arm_right_tool_link" reason="Never"/>
+    <disable_collisions link1="arm_left_4_link" link2="gripper_left_base_finger_left_link" reason="Never"/>
+    <disable_collisions link1="arm_left_4_link" link2="gripper_left_base_finger_right_link" reason="Never"/>
+    <disable_collisions link1="arm_left_4_link" link2="gripper_left_base_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="gripper_left_grasping_link" reason="Never"/>
+    <disable_collisions link1="arm_left_4_link" link2="gripper_left_inner_finger_left_link" reason="Never"/>
+    <disable_collisions link1="arm_left_4_link" link2="gripper_left_inner_finger_right_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_4_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_left_4_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_4_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_4_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="left_foot_upper_left" reason="Never"/>
@@ -242,34 +235,36 @@
     <disable_collisions link1="arm_left_4_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="arm_left_4_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="arm_left_4_link" link2="wrist_left_ft_tool_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="arm_left_6_link" reason="Adjacent"/>
+    <disable_collisions link1="arm_left_5_link" link2="arm_left_7_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="arm_left_base_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="arm_left_tool_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="arm_right_base_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="arm_right_tool_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="gripper_left_base_finger_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="gripper_left_base_finger_right_link" reason="Never"/>
+    <disable_collisions link1="arm_left_5_link" link2="gripper_left_base_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="gripper_left_fingertip_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="gripper_left_fingertip_right_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="gripper_left_inner_finger_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="gripper_left_inner_finger_right_link" reason="Never"/>
+    <disable_collisions link1="arm_left_5_link" link2="gripper_left_outer_finger_left_link" reason="Never"/>
+    <disable_collisions link1="arm_left_5_link" link2="gripper_left_outer_finger_right_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_5_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_left_5_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_5_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_5_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="left_foot_upper_left" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="left_foot_upper_right" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="left_sole_link" reason="Never"/>
+    <disable_collisions link1="arm_left_5_link" link2="leg_left_4_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="leg_left_5_aligned_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="leg_left_knee_straight" reason="Never"/>
@@ -287,8 +282,12 @@
     <disable_collisions link1="arm_left_5_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="arm_left_5_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_5_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="arm_left_5_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
+    <disable_collisions link1="arm_left_5_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
+    <disable_collisions link1="arm_left_5_link" link2="wrist_left_ft_tool_link" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="arm_left_7_link" reason="Adjacent"/>
     <disable_collisions link1="arm_left_6_link" link2="arm_left_base_link" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="arm_left_tool_link" reason="Never"/>
@@ -306,10 +305,6 @@
     <disable_collisions link1="arm_left_6_link" link2="gripper_left_outer_finger_right_link" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_6_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_left_6_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_6_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_6_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="left_foot_upper_left" reason="Never"/>
@@ -321,6 +316,7 @@
     <disable_collisions link1="arm_left_6_link" link2="leg_left_length_link" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="leg_right_4_link" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="leg_right_5_aligned_link" reason="Never"/>
+    <disable_collisions link1="arm_left_6_link" link2="leg_right_5_link" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="leg_right_knee_straight" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="leg_right_length_link" reason="Never"/>
@@ -331,6 +327,7 @@
     <disable_collisions link1="arm_left_6_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="arm_left_6_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_6_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
@@ -352,10 +349,6 @@
     <disable_collisions link1="arm_left_7_link" link2="gripper_left_outer_finger_right_link" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_7_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_left_7_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_7_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_7_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="left_foot_upper_left" reason="Never"/>
@@ -367,6 +360,7 @@
     <disable_collisions link1="arm_left_7_link" link2="leg_left_length_link" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="leg_right_4_link" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="leg_right_5_aligned_link" reason="Never"/>
+    <disable_collisions link1="arm_left_7_link" link2="leg_right_5_link" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="leg_right_knee_straight" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="leg_right_length_link" reason="Never"/>
@@ -377,6 +371,7 @@
     <disable_collisions link1="arm_left_7_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="arm_left_7_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_7_link" link2="wrist_left_ft_sensor_base_link" reason="Adjacent"/>
@@ -396,21 +391,13 @@
     <disable_collisions link1="arm_left_base_link" link2="base_link" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="gripper_left_base_finger_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="gripper_left_base_finger_right_link" reason="Never"/>
+    <disable_collisions link1="arm_left_base_link" link2="gripper_left_fingertip_left_link" reason="Never"/>
+    <disable_collisions link1="arm_left_base_link" link2="gripper_left_fingertip_right_link" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="gripper_left_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="gripper_left_inner_finger_left_link" reason="Never"/>
+    <disable_collisions link1="arm_left_base_link" link2="gripper_left_outer_finger_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="gripper_left_outer_finger_right_link" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="gripper_right_fingertip_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="gripper_right_inner_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="gripper_right_outer_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="gripper_right_outer_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="left_foot_upper_left" reason="Never"/>
@@ -450,6 +437,7 @@
     <disable_collisions link1="arm_left_base_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="arm_left_base_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="torso_link" reason="Adjacent"/>
     <disable_collisions link1="arm_left_base_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -458,9 +446,6 @@
     <disable_collisions link1="arm_left_base_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="arm_left_base_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="arm_left_base_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="arm_right_1_link" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="arm_right_2_link" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="arm_right_3_link" reason="Never"/>
@@ -484,19 +469,6 @@
     <disable_collisions link1="arm_left_tool_link" link2="gripper_left_outer_finger_right_link" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="gripper_right_base_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="gripper_right_fingertip_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="gripper_right_fingertip_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="gripper_right_inner_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="gripper_right_inner_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="gripper_right_outer_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="gripper_right_outer_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="left_foot_upper_left" reason="Never"/>
@@ -536,6 +508,7 @@
     <disable_collisions link1="arm_left_tool_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="arm_left_tool_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -544,13 +517,12 @@
     <disable_collisions link1="arm_left_tool_link" link2="wrist_left_ft_sensor_base_link" reason="Adjacent"/>
     <disable_collisions link1="arm_left_tool_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="arm_left_tool_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="arm_left_tool_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="arm_right_2_link" reason="Adjacent"/>
     <disable_collisions link1="arm_right_1_link" link2="arm_right_3_link" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="arm_right_4_link" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="arm_right_5_link" reason="Never"/>
+    <disable_collisions link1="arm_right_1_link" link2="arm_right_6_link" reason="Never"/>
+    <disable_collisions link1="arm_right_1_link" link2="arm_right_7_link" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="arm_right_base_link" reason="Adjacent"/>
     <disable_collisions link1="arm_right_1_link" link2="arm_right_tool_link" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="back_handle" reason="Never"/>
@@ -558,10 +530,6 @@
     <disable_collisions link1="arm_right_1_link" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_1_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_right_1_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_1_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_1_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="left_foot_upper_left" reason="Never"/>
@@ -601,6 +569,7 @@
     <disable_collisions link1="arm_right_1_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="arm_right_1_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="torso_link" reason="Default"/>
     <disable_collisions link1="arm_right_1_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_1_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -618,10 +587,6 @@
     <disable_collisions link1="arm_right_2_link" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="arm_right_2_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_right_2_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_2_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_right_2_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_2_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_2_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_2_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_right_2_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_right_2_link" link2="left_foot_upper_left" reason="Never"/>
@@ -661,13 +626,11 @@
     <disable_collisions link1="arm_right_2_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="arm_right_2_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_2_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="arm_right_2_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_2_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_2_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="arm_right_2_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_2_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="arm_right_2_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="arm_right_2_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="arm_right_2_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="arm_right_4_link" reason="Adjacent"/>
     <disable_collisions link1="arm_right_3_link" link2="arm_right_5_link" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="arm_right_6_link" reason="Never"/>
@@ -675,15 +638,10 @@
     <disable_collisions link1="arm_right_3_link" link2="arm_right_base_link" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="arm_right_tool_link" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="base_link" reason="Never"/>
+    <disable_collisions link1="arm_right_3_link" link2="gripper_left_base_finger_left_link" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_3_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_3_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_3_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_right_3_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_3_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_3_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="left_foot_upper_left" reason="Never"/>
@@ -721,12 +679,10 @@
     <disable_collisions link1="arm_right_3_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="arm_right_3_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_3_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="arm_right_3_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="arm_right_3_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="arm_right_3_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="arm_right_5_link" reason="Adjacent"/>
     <disable_collisions link1="arm_right_4_link" link2="arm_right_6_link" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="arm_right_7_link" reason="Never"/>
@@ -735,10 +691,6 @@
     <disable_collisions link1="arm_right_4_link" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_4_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_right_4_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_4_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_4_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="left_foot_upper_left" reason="Never"/>
@@ -768,27 +720,16 @@
     <disable_collisions link1="arm_right_4_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="arm_right_4_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_4_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="arm_right_4_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="arm_right_4_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="arm_right_4_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="arm_right_6_link" reason="Adjacent"/>
+    <disable_collisions link1="arm_right_5_link" link2="arm_right_7_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="arm_right_base_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="arm_right_tool_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_5_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_5_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_5_link" link2="gripper_right_fingertip_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_5_link" link2="gripper_right_fingertip_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_5_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_right_5_link" link2="gripper_right_inner_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_5_link" link2="gripper_right_inner_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_5_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_5_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_5_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="left_foot_upper_left" reason="Never"/>
@@ -800,6 +741,7 @@
     <disable_collisions link1="arm_right_5_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="leg_left_knee_straight" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="leg_left_length_link" reason="Never"/>
+    <disable_collisions link1="arm_right_5_link" link2="leg_right_4_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="leg_right_5_aligned_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="leg_right_knee_straight" reason="Never"/>
@@ -811,6 +753,7 @@
     <disable_collisions link1="arm_right_5_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="arm_right_5_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_5_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_6_link" link2="arm_right_7_link" reason="Adjacent"/>
@@ -819,19 +762,6 @@
     <disable_collisions link1="arm_right_6_link" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="arm_right_6_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_right_6_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="gripper_right_base_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="gripper_right_fingertip_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="gripper_right_fingertip_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="gripper_right_inner_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="gripper_right_inner_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="gripper_right_outer_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="gripper_right_outer_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_6_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_right_6_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_right_6_link" link2="left_foot_upper_left" reason="Never"/>
@@ -853,29 +783,14 @@
     <disable_collisions link1="arm_right_6_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="arm_right_6_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_6_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="arm_right_6_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_6_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_6_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="arm_right_6_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="arm_right_base_link" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="arm_right_tool_link" reason="Adjacent"/>
     <disable_collisions link1="arm_right_7_link" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="gripper_right_base_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="gripper_right_fingertip_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="gripper_right_fingertip_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="gripper_right_inner_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="gripper_right_inner_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="gripper_right_outer_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="gripper_right_outer_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="left_foot_upper_left" reason="Never"/>
@@ -883,6 +798,7 @@
     <disable_collisions link1="arm_right_7_link" link2="left_sole_link" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="leg_left_4_link" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="leg_left_5_aligned_link" reason="Never"/>
+    <disable_collisions link1="arm_right_7_link" link2="leg_left_5_link" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="leg_left_knee_straight" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="leg_left_length_link" reason="Never"/>
@@ -897,31 +813,20 @@
     <disable_collisions link1="arm_right_7_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="arm_right_7_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_7_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="wrist_right_ft_sensor_base_link" reason="Adjacent"/>
-    <disable_collisions link1="arm_right_7_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="arm_right_7_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="arm_right_tool_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="back_handle" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="base_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="gripper_left_base_finger_left_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="gripper_left_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_base_link" link2="gripper_left_fingertip_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_base_link" link2="gripper_left_fingertip_right_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="gripper_left_inner_finger_left_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="gripper_left_inner_finger_right_link" reason="Never"/>
+    <disable_collisions link1="arm_right_base_link" link2="gripper_left_outer_finger_right_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_base_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_base_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_base_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_right_base_link" link2="gripper_right_inner_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_base_link" link2="gripper_right_outer_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_base_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_base_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_base_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="left_foot_upper_left" reason="Never"/>
@@ -961,6 +866,7 @@
     <disable_collisions link1="arm_right_base_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="arm_right_base_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="torso_link" reason="Adjacent"/>
     <disable_collisions link1="arm_right_base_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -969,9 +875,6 @@
     <disable_collisions link1="arm_right_base_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="arm_right_base_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="arm_right_base_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="arm_right_base_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="arm_right_base_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="back_handle" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="base_link" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="gripper_left_base_finger_left_link" reason="Never"/>
@@ -986,19 +889,6 @@
     <disable_collisions link1="arm_right_tool_link" link2="gripper_left_outer_finger_right_link" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="gripper_right_base_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="gripper_right_fingertip_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="gripper_right_fingertip_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="gripper_right_inner_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="gripper_right_inner_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="gripper_right_outer_finger_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="gripper_right_outer_finger_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="left_foot_upper_left" reason="Never"/>
@@ -1038,6 +928,7 @@
     <disable_collisions link1="arm_right_tool_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="arm_right_tool_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -1046,22 +937,16 @@
     <disable_collisions link1="arm_right_tool_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="arm_right_tool_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="wrist_right_ft_sensor_base_link" reason="Adjacent"/>
-    <disable_collisions link1="arm_right_tool_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="arm_right_tool_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="back_handle" link2="base_link" reason="Adjacent"/>
     <disable_collisions link1="back_handle" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="back_handle" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="back_handle" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="back_handle" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="back_handle" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="back_handle" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="back_handle" link2="imu_link" reason="Never"/>
     <disable_collisions link1="back_handle" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="back_handle" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="back_handle" link2="left_foot_upper_left" reason="Never"/>
     <disable_collisions link1="back_handle" link2="left_foot_upper_right" reason="Never"/>
     <disable_collisions link1="back_handle" link2="left_sole_link" reason="Never"/>
+    <disable_collisions link1="back_handle" link2="leg_left_1_link" reason="Never"/>
     <disable_collisions link1="back_handle" link2="leg_left_2_link" reason="Never"/>
     <disable_collisions link1="back_handle" link2="leg_left_4_link" reason="Never"/>
     <disable_collisions link1="back_handle" link2="leg_left_5_aligned_link" reason="Never"/>
@@ -1071,6 +956,7 @@
     <disable_collisions link1="back_handle" link2="leg_left_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="back_handle" link2="leg_left_knee_straight" reason="Never"/>
     <disable_collisions link1="back_handle" link2="leg_left_length_link" reason="Never"/>
+    <disable_collisions link1="back_handle" link2="leg_right_1_link" reason="Never"/>
     <disable_collisions link1="back_handle" link2="leg_right_2_link" reason="Never"/>
     <disable_collisions link1="back_handle" link2="leg_right_4_link" reason="Never"/>
     <disable_collisions link1="back_handle" link2="leg_right_5_aligned_link" reason="Never"/>
@@ -1092,6 +978,7 @@
     <disable_collisions link1="back_handle" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="back_handle" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="back_handle" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="back_handle" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="back_handle" link2="torso_link" reason="Never"/>
     <disable_collisions link1="back_handle" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="back_handle" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -1100,10 +987,6 @@
     <disable_collisions link1="base_link" link2="gripper_left_grasping_link" reason="Never"/>
     <disable_collisions link1="base_link" link2="gripper_left_screw_left_link" reason="Never"/>
     <disable_collisions link1="base_link" link2="gripper_left_screw_right_link" reason="Never"/>
-    <disable_collisions link1="base_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="base_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="base_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="base_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="base_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="base_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="base_link" link2="left_foot_upper_left" reason="Never"/>
@@ -1141,24 +1024,17 @@
     <disable_collisions link1="base_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="base_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="base_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="base_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="base_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="base_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="base_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="base_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="base_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_left_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_left_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_left_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_left_link" link2="gripper_right_outer_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_left_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_left_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_left_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_left_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_left_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_left_link" link2="left_foot_upper_left" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_left_link" link2="left_foot_upper_right" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_left_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_left_link" link2="leg_left_4_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_left_link" link2="leg_left_5_aligned_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_left_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_left_link" link2="leg_left_knee_straight" reason="Never"/>
@@ -1176,16 +1052,9 @@
     <disable_collisions link1="gripper_left_base_finger_left_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_left_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_left_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="gripper_left_base_finger_left_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_left_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_left_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_right_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_right_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_right_link" link2="gripper_right_fingertip_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_right_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_right_link" link2="gripper_right_outer_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_right_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_right_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_right_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="left_foot_upper_left" reason="Never"/>
@@ -1198,7 +1067,6 @@
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="leg_left_length_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="leg_right_4_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_finger_right_link" link2="leg_right_5_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="leg_right_knee_straight" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="leg_right_length_link" reason="Never"/>
@@ -1209,12 +1077,9 @@
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="gripper_left_base_finger_right_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_base_finger_right_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_base_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="gripper_left_base_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="gripper_left_base_link" link2="left_foot_upper_left" reason="Never"/>
@@ -1235,13 +1100,9 @@
     <disable_collisions link1="gripper_left_base_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_base_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="gripper_left_base_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_base_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_base_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_left_fingertip_left_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_fingertip_left_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_fingertip_left_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_fingertip_left_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_fingertip_left_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_left_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_left_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_left_link" link2="left_foot_upper_left" reason="Never"/>
@@ -1262,13 +1123,9 @@
     <disable_collisions link1="gripper_left_fingertip_left_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_left_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_left_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="gripper_left_fingertip_left_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_left_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_left_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_left_fingertip_right_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_fingertip_right_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_fingertip_right_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_fingertip_right_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_fingertip_right_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_right_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_right_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_right_link" link2="left_foot_upper_left" reason="Never"/>
@@ -1289,21 +1146,9 @@
     <disable_collisions link1="gripper_left_fingertip_right_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_right_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_right_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="gripper_left_fingertip_right_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_right_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_fingertip_right_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="gripper_right_base_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="gripper_right_fingertip_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="gripper_right_fingertip_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="gripper_right_inner_finger_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="gripper_right_inner_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="gripper_right_outer_finger_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="gripper_right_outer_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_grasping_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="gripper_left_grasping_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="gripper_left_grasping_link" link2="left_foot_upper_left" reason="Never"/>
@@ -1343,18 +1188,12 @@
     <disable_collisions link1="gripper_left_grasping_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="gripper_left_grasping_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_grasping_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="gripper_left_grasping_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_grasping_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="gripper_left_grasping_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_grasping_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="gripper_left_grasping_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_grasping_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_grasping_link" link2="wrist_right_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_inner_finger_left_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_inner_finger_left_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_inner_finger_left_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_inner_finger_left_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_left_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_left_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_left_link" link2="left_foot_upper_left" reason="Never"/>
@@ -1375,12 +1214,9 @@
     <disable_collisions link1="gripper_left_inner_finger_left_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_left_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_left_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="gripper_left_inner_finger_left_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_left_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_left_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_left_inner_finger_right_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_inner_finger_right_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_inner_finger_right_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_inner_finger_right_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_right_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_right_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_right_link" link2="left_foot_upper_left" reason="Never"/>
@@ -1401,13 +1237,9 @@
     <disable_collisions link1="gripper_left_inner_finger_right_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_right_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_right_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="gripper_left_inner_finger_right_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_right_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_inner_finger_right_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_left_outer_finger_left_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_outer_finger_left_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_outer_finger_left_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_outer_finger_left_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_outer_finger_left_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_left_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_left_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_left_link" link2="left_foot_upper_left" reason="Never"/>
@@ -1428,14 +1260,9 @@
     <disable_collisions link1="gripper_left_outer_finger_left_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_left_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_left_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="gripper_left_outer_finger_left_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_left_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_left_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_left_outer_finger_right_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_outer_finger_right_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_outer_finger_right_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_outer_finger_right_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_outer_finger_right_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_outer_finger_right_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="left_foot_upper_left" reason="Never"/>
@@ -1445,6 +1272,7 @@
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="leg_left_knee_straight" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="leg_left_length_link" reason="Never"/>
+    <disable_collisions link1="gripper_left_outer_finger_right_link" link2="leg_right_4_link" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="leg_right_5_aligned_link" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="leg_right_knee_straight" reason="Never"/>
@@ -1456,21 +1284,9 @@
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="right_sole_link" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="gripper_left_outer_finger_right_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_outer_finger_right_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="gripper_right_base_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="gripper_right_fingertip_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="gripper_right_fingertip_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="gripper_right_inner_finger_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="gripper_right_inner_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="gripper_right_outer_finger_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="gripper_right_outer_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_left_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_left_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_left_link" link2="left_foot_upper_left" reason="Never"/>
@@ -1510,27 +1326,12 @@
     <disable_collisions link1="gripper_left_screw_left_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_left_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_left_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="gripper_left_screw_left_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_left_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_left_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_left_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_left_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_left_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_left_link" link2="wrist_right_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="gripper_right_base_finger_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="gripper_right_base_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="gripper_right_base_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="gripper_right_fingertip_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="gripper_right_fingertip_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="gripper_right_grasping_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="gripper_right_inner_finger_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="gripper_right_inner_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="gripper_right_outer_finger_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="gripper_right_outer_finger_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="gripper_right_screw_left_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="gripper_right_screw_right_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_right_link" link2="left_foot_lower_left" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_right_link" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_right_link" link2="left_foot_upper_left" reason="Never"/>
@@ -1570,418 +1371,12 @@
     <disable_collisions link1="gripper_left_screw_right_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_right_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_right_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="gripper_left_screw_right_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_right_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_right_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_right_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_right_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="gripper_left_screw_right_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="gripper_left_screw_right_link" link2="wrist_right_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="imu_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="left_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="left_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="left_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="left_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="leg_left_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="leg_left_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="leg_left_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="leg_right_4_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="leg_right_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="leg_right_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="right_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="right_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="right_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="right_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="right_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_left_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="imu_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="left_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="left_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="left_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="left_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="leg_left_4_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="leg_left_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="leg_left_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="leg_left_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="leg_right_4_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="leg_right_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="leg_right_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="right_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="right_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="right_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="right_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="right_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_finger_right_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="imu_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="left_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="left_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="left_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="left_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="leg_left_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="leg_left_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="leg_left_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="leg_right_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="leg_right_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="right_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="right_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="right_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="right_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="right_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_base_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="imu_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="left_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="left_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="left_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="left_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="leg_left_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="leg_left_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="leg_left_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="leg_right_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="leg_right_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="right_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="right_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="right_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="right_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="right_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_left_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="imu_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="left_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="left_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="left_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="left_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="leg_left_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="leg_left_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="leg_left_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="leg_right_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="leg_right_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="right_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="right_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="right_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="right_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="right_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_fingertip_right_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="imu_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="left_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="left_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="left_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="left_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_left_1_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_left_2_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_left_3_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_left_4_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_left_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_left_5_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_left_femur_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_left_knee_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_left_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_left_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_right_1_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_right_2_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_right_3_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_right_4_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_right_5_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_right_femur_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_right_knee_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_right_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="leg_right_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="pelvis_1_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="pelvis_2_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="pelvis_base_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="right_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="right_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="right_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="right_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="right_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="torso_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_grasping_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="imu_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="left_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="left_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="left_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="left_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="leg_left_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="leg_left_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="leg_left_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="leg_right_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="leg_right_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="right_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="right_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="right_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="right_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="right_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_left_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="imu_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="left_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="left_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="left_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="left_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="leg_left_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="leg_left_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="leg_left_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="leg_right_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="leg_right_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="right_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="right_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="right_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="right_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="right_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_inner_finger_right_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="imu_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="left_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="left_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="left_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="left_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="leg_left_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="leg_left_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="leg_left_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="leg_right_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="leg_right_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="right_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="right_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="right_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="right_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="right_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_left_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="imu_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="left_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="left_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="left_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="left_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="leg_left_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="leg_left_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="leg_left_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="leg_right_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="leg_right_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="right_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="right_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="right_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="right_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="right_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_outer_finger_right_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="imu_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="left_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="left_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="left_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="left_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_left_1_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_left_2_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_left_3_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_left_4_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_left_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_left_5_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_left_femur_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_left_knee_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_left_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_left_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_right_1_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_right_2_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_right_3_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_right_4_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_right_5_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_right_femur_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_right_knee_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_right_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="leg_right_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="pelvis_1_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="pelvis_2_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="pelvis_base_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="right_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="right_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="right_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="right_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="right_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="torso_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_left_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="imu_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="left_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="left_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="left_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="left_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_left_1_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_left_2_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_left_3_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_left_4_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_left_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_left_5_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_left_femur_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_left_knee_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_left_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_left_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_right_1_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_right_2_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_right_3_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_right_4_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_right_5_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_right_femur_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_right_knee_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_right_knee_straight" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="leg_right_length_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="pelvis_1_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="pelvis_2_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="pelvis_base_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="right_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="right_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="right_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="right_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="right_sole_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="torso_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="gripper_right_screw_right_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="left_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="left_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="left_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="left_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="left_sole_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_left_1_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_left_2_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_left_3_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_left_4_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_left_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_left_5_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_left_femur_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_left_knee_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_left_knee_straight" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_left_length_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_right_1_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_right_2_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_right_3_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_right_4_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_right_5_aligned_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_right_5_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_right_femur_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_right_knee_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_right_knee_straight" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="leg_right_length_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="pelvis_1_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="pelvis_2_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="pelvis_base_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="right_foot_lower_left" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="right_foot_lower_right" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="right_foot_upper_left" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="right_foot_upper_right" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="right_sole_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="torso_link" reason="Adjacent"/>
-    <disable_collisions link1="imu_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="imu_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="left_foot_lower_left" link2="left_foot_lower_right" reason="Never"/>
     <disable_collisions link1="left_foot_lower_left" link2="left_foot_upper_left" reason="Never"/>
     <disable_collisions link1="left_foot_lower_left" link2="left_foot_upper_right" reason="Never"/>
@@ -2020,6 +1415,7 @@
     <disable_collisions link1="left_foot_lower_left" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="left_foot_lower_left" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="left_foot_lower_left" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="left_foot_lower_left" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="left_foot_lower_left" link2="torso_link" reason="Never"/>
     <disable_collisions link1="left_foot_lower_left" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="left_foot_lower_left" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2028,9 +1424,6 @@
     <disable_collisions link1="left_foot_lower_left" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="left_foot_lower_left" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="left_foot_lower_left" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="left_foot_lower_left" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="left_foot_lower_left" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="left_foot_lower_left" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="left_foot_lower_right" link2="left_foot_upper_left" reason="Never"/>
     <disable_collisions link1="left_foot_lower_right" link2="left_foot_upper_right" reason="Never"/>
     <disable_collisions link1="left_foot_lower_right" link2="left_sole_link" reason="Adjacent"/>
@@ -2068,6 +1461,7 @@
     <disable_collisions link1="left_foot_lower_right" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="left_foot_lower_right" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="left_foot_lower_right" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="left_foot_lower_right" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="left_foot_lower_right" link2="torso_link" reason="Never"/>
     <disable_collisions link1="left_foot_lower_right" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="left_foot_lower_right" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2076,9 +1470,6 @@
     <disable_collisions link1="left_foot_lower_right" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="left_foot_lower_right" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="left_foot_lower_right" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="left_foot_lower_right" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="left_foot_lower_right" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="left_foot_lower_right" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="left_foot_upper_left" link2="left_foot_upper_right" reason="Never"/>
     <disable_collisions link1="left_foot_upper_left" link2="left_sole_link" reason="Adjacent"/>
     <disable_collisions link1="left_foot_upper_left" link2="leg_left_1_link" reason="Never"/>
@@ -2115,6 +1506,7 @@
     <disable_collisions link1="left_foot_upper_left" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="left_foot_upper_left" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="left_foot_upper_left" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="left_foot_upper_left" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="left_foot_upper_left" link2="torso_link" reason="Never"/>
     <disable_collisions link1="left_foot_upper_left" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="left_foot_upper_left" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2123,9 +1515,6 @@
     <disable_collisions link1="left_foot_upper_left" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="left_foot_upper_left" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="left_foot_upper_left" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="left_foot_upper_left" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="left_foot_upper_left" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="left_foot_upper_left" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="left_foot_upper_right" link2="left_sole_link" reason="Adjacent"/>
     <disable_collisions link1="left_foot_upper_right" link2="leg_left_1_link" reason="Never"/>
     <disable_collisions link1="left_foot_upper_right" link2="leg_left_2_link" reason="Never"/>
@@ -2161,6 +1550,7 @@
     <disable_collisions link1="left_foot_upper_right" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="left_foot_upper_right" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="left_foot_upper_right" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="left_foot_upper_right" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="left_foot_upper_right" link2="torso_link" reason="Never"/>
     <disable_collisions link1="left_foot_upper_right" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="left_foot_upper_right" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2169,9 +1559,6 @@
     <disable_collisions link1="left_foot_upper_right" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="left_foot_upper_right" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="left_foot_upper_right" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="left_foot_upper_right" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="left_foot_upper_right" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="left_foot_upper_right" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="left_sole_link" link2="leg_left_1_link" reason="Never"/>
     <disable_collisions link1="left_sole_link" link2="leg_left_2_link" reason="Never"/>
     <disable_collisions link1="left_sole_link" link2="leg_left_3_link" reason="Never"/>
@@ -2206,6 +1593,7 @@
     <disable_collisions link1="left_sole_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="left_sole_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="left_sole_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="left_sole_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="left_sole_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="left_sole_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="left_sole_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2214,9 +1602,6 @@
     <disable_collisions link1="left_sole_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="left_sole_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="left_sole_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="left_sole_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="left_sole_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="left_sole_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="leg_left_1_link" link2="leg_left_2_link" reason="Adjacent"/>
     <disable_collisions link1="leg_left_1_link" link2="leg_left_4_link" reason="Never"/>
     <disable_collisions link1="leg_left_1_link" link2="leg_left_5_aligned_link" reason="Never"/>
@@ -2235,6 +1620,7 @@
     <disable_collisions link1="leg_left_1_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="leg_left_1_link" link2="leg_right_knee_straight" reason="Never"/>
     <disable_collisions link1="leg_left_1_link" link2="leg_right_length_link" reason="Never"/>
+    <disable_collisions link1="leg_left_1_link" link2="pelvis_1_link" reason="Never"/>
     <disable_collisions link1="leg_left_1_link" link2="pelvis_2_link" reason="Never"/>
     <disable_collisions link1="leg_left_1_link" link2="right_foot_lower_left" reason="Never"/>
     <disable_collisions link1="leg_left_1_link" link2="right_foot_lower_right" reason="Never"/>
@@ -2245,6 +1631,7 @@
     <disable_collisions link1="leg_left_1_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_1_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_1_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_left_1_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_left_1_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_left_1_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_1_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2282,6 +1669,7 @@
     <disable_collisions link1="leg_left_2_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_2_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_2_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_left_2_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_left_2_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_left_2_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_2_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2316,6 +1704,7 @@
     <disable_collisions link1="leg_left_3_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_3_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_3_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_left_3_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_left_3_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_left_3_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_3_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2323,6 +1712,7 @@
     <disable_collisions link1="leg_left_3_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_4_link" link2="leg_left_5_aligned_link" reason="Never"/>
     <disable_collisions link1="leg_left_4_link" link2="leg_left_5_link" reason="Adjacent"/>
+    <disable_collisions link1="leg_left_4_link" link2="leg_left_knee_link" reason="Default"/>
     <disable_collisions link1="leg_left_4_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="leg_left_4_link" link2="leg_left_knee_straight" reason="Never"/>
     <disable_collisions link1="leg_left_4_link" link2="leg_left_length_link" reason="Adjacent"/>
@@ -2345,14 +1735,12 @@
     <disable_collisions link1="leg_left_4_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_4_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_4_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_left_4_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_left_4_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_left_4_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_4_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_4_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_4_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="leg_left_4_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="leg_left_4_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="leg_left_4_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_aligned_link" link2="leg_left_5_link" reason="Adjacent"/>
     <disable_collisions link1="leg_left_5_aligned_link" link2="leg_left_femur_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_aligned_link" link2="leg_left_knee_link" reason="Never"/>
@@ -2382,6 +1770,7 @@
     <disable_collisions link1="leg_left_5_aligned_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_aligned_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_5_aligned_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_left_5_aligned_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_aligned_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_aligned_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_5_aligned_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2390,15 +1779,13 @@
     <disable_collisions link1="leg_left_5_aligned_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_aligned_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_aligned_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="leg_left_5_aligned_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="leg_left_5_aligned_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="leg_left_5_aligned_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="leg_left_knee_link" reason="Default"/>
     <disable_collisions link1="leg_left_5_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="leg_left_knee_straight" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="leg_left_length_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="leg_right_1_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="leg_right_2_link" reason="Never"/>
+    <disable_collisions link1="leg_left_5_link" link2="leg_right_3_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="leg_right_5_aligned_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="leg_right_knee_straight" reason="Never"/>
@@ -2415,12 +1802,12 @@
     <disable_collisions link1="leg_left_5_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_left_5_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_5_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
-    <disable_collisions link1="leg_left_5_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="leg_left_femur_link" link2="leg_left_knee_link" reason="Adjacent"/>
     <disable_collisions link1="leg_left_femur_link" link2="leg_left_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="leg_left_femur_link" link2="leg_left_knee_straight" reason="Never"/>
@@ -2444,6 +1831,7 @@
     <disable_collisions link1="leg_left_femur_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_femur_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_femur_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_left_femur_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_left_femur_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_left_femur_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_femur_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2454,6 +1842,7 @@
     <disable_collisions link1="leg_left_knee_link" link2="leg_left_length_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_link" link2="leg_right_1_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_link" link2="leg_right_2_link" reason="Never"/>
+    <disable_collisions link1="leg_left_knee_link" link2="leg_right_3_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_link" link2="leg_right_5_aligned_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="leg_left_knee_link" link2="leg_right_knee_straight" reason="Never"/>
@@ -2470,6 +1859,7 @@
     <disable_collisions link1="leg_left_knee_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_knee_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_left_knee_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_knee_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2500,6 +1890,7 @@
     <disable_collisions link1="leg_left_knee_lower_bearing" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_lower_bearing" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_knee_lower_bearing" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_left_knee_lower_bearing" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_lower_bearing" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_lower_bearing" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_knee_lower_bearing" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2508,9 +1899,6 @@
     <disable_collisions link1="leg_left_knee_lower_bearing" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_lower_bearing" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_lower_bearing" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="leg_left_knee_lower_bearing" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="leg_left_knee_lower_bearing" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="leg_left_knee_lower_bearing" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_straight" link2="leg_left_length_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_straight" link2="leg_right_1_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_straight" link2="leg_right_2_link" reason="Never"/>
@@ -2535,6 +1923,7 @@
     <disable_collisions link1="leg_left_knee_straight" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_straight" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_knee_straight" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_left_knee_straight" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_straight" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_straight" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_knee_straight" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2543,9 +1932,6 @@
     <disable_collisions link1="leg_left_knee_straight" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_straight" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="leg_left_knee_straight" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="leg_left_knee_straight" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="leg_left_knee_straight" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="leg_left_knee_straight" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="leg_left_length_link" link2="leg_right_1_link" reason="Never"/>
     <disable_collisions link1="leg_left_length_link" link2="leg_right_2_link" reason="Never"/>
     <disable_collisions link1="leg_left_length_link" link2="leg_right_3_link" reason="Never"/>
@@ -2569,6 +1955,7 @@
     <disable_collisions link1="leg_left_length_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_left_length_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_length_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_left_length_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_left_length_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_left_length_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_left_length_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2577,9 +1964,6 @@
     <disable_collisions link1="leg_left_length_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="leg_left_length_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="leg_left_length_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="leg_left_length_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="leg_left_length_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="leg_left_length_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="leg_right_1_link" link2="leg_right_2_link" reason="Adjacent"/>
     <disable_collisions link1="leg_right_1_link" link2="leg_right_4_link" reason="Never"/>
     <disable_collisions link1="leg_right_1_link" link2="leg_right_5_aligned_link" reason="Never"/>
@@ -2588,6 +1972,7 @@
     <disable_collisions link1="leg_right_1_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="leg_right_1_link" link2="leg_right_knee_straight" reason="Never"/>
     <disable_collisions link1="leg_right_1_link" link2="leg_right_length_link" reason="Never"/>
+    <disable_collisions link1="leg_right_1_link" link2="pelvis_1_link" reason="Never"/>
     <disable_collisions link1="leg_right_1_link" link2="pelvis_2_link" reason="Never"/>
     <disable_collisions link1="leg_right_1_link" link2="right_foot_lower_left" reason="Never"/>
     <disable_collisions link1="leg_right_1_link" link2="right_foot_lower_right" reason="Never"/>
@@ -2598,6 +1983,7 @@
     <disable_collisions link1="leg_right_1_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_right_1_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_1_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_right_1_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_right_1_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_right_1_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_1_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2624,6 +2010,7 @@
     <disable_collisions link1="leg_right_2_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_right_2_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_2_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_right_2_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_right_2_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_right_2_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_2_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2649,6 +2036,7 @@
     <disable_collisions link1="leg_right_3_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_right_3_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_3_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_right_3_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_right_3_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_right_3_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_3_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2656,6 +2044,7 @@
     <disable_collisions link1="leg_right_3_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_right_4_link" link2="leg_right_5_aligned_link" reason="Never"/>
     <disable_collisions link1="leg_right_4_link" link2="leg_right_5_link" reason="Adjacent"/>
+    <disable_collisions link1="leg_right_4_link" link2="leg_right_knee_link" reason="Default"/>
     <disable_collisions link1="leg_right_4_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="leg_right_4_link" link2="leg_right_knee_straight" reason="Never"/>
     <disable_collisions link1="leg_right_4_link" link2="leg_right_length_link" reason="Adjacent"/>
@@ -2671,6 +2060,7 @@
     <disable_collisions link1="leg_right_4_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_right_4_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_4_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_right_4_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_right_4_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_right_4_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_4_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2697,6 +2087,7 @@
     <disable_collisions link1="leg_right_5_aligned_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_right_5_aligned_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_5_aligned_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_right_5_aligned_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_right_5_aligned_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_right_5_aligned_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_5_aligned_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2705,9 +2096,6 @@
     <disable_collisions link1="leg_right_5_aligned_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="leg_right_5_aligned_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="leg_right_5_aligned_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="leg_right_5_aligned_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="leg_right_5_aligned_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="leg_right_5_aligned_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="leg_right_5_link" link2="leg_right_knee_link" reason="Default"/>
     <disable_collisions link1="leg_right_5_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="leg_right_5_link" link2="leg_right_knee_straight" reason="Never"/>
@@ -2724,11 +2112,13 @@
     <disable_collisions link1="leg_right_5_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_right_5_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_5_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_right_5_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_right_5_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_right_5_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_5_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_right_5_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_5_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_right_5_link" link2="wrist_left_ft_tool_link" reason="Never"/>
     <disable_collisions link1="leg_right_femur_link" link2="leg_right_knee_link" reason="Adjacent"/>
     <disable_collisions link1="leg_right_femur_link" link2="leg_right_knee_lower_bearing" reason="Never"/>
     <disable_collisions link1="leg_right_femur_link" link2="leg_right_knee_straight" reason="Never"/>
@@ -2745,6 +2135,7 @@
     <disable_collisions link1="leg_right_femur_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_right_femur_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_femur_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_right_femur_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_right_femur_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_right_femur_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_femur_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2765,6 +2156,7 @@
     <disable_collisions link1="leg_right_knee_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_knee_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_right_knee_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_knee_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2784,6 +2176,7 @@
     <disable_collisions link1="leg_right_knee_lower_bearing" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_lower_bearing" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_knee_lower_bearing" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_right_knee_lower_bearing" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_lower_bearing" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_lower_bearing" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_knee_lower_bearing" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2792,9 +2185,6 @@
     <disable_collisions link1="leg_right_knee_lower_bearing" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_lower_bearing" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_lower_bearing" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="leg_right_knee_lower_bearing" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="leg_right_knee_lower_bearing" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="leg_right_knee_lower_bearing" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_straight" link2="leg_right_length_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_straight" link2="pelvis_1_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_straight" link2="pelvis_2_link" reason="Never"/>
@@ -2808,6 +2198,7 @@
     <disable_collisions link1="leg_right_knee_straight" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_straight" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_knee_straight" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_right_knee_straight" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_straight" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_straight" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_knee_straight" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2816,9 +2207,6 @@
     <disable_collisions link1="leg_right_knee_straight" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_straight" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="leg_right_knee_straight" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="leg_right_knee_straight" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="leg_right_knee_straight" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="leg_right_knee_straight" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="leg_right_length_link" link2="pelvis_1_link" reason="Never"/>
     <disable_collisions link1="leg_right_length_link" link2="pelvis_2_link" reason="Never"/>
     <disable_collisions link1="leg_right_length_link" link2="pelvis_base_link" reason="Never"/>
@@ -2831,6 +2219,7 @@
     <disable_collisions link1="leg_right_length_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="leg_right_length_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_length_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="leg_right_length_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="leg_right_length_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="leg_right_length_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="leg_right_length_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2839,9 +2228,6 @@
     <disable_collisions link1="leg_right_length_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="leg_right_length_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="leg_right_length_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="leg_right_length_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="leg_right_length_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="leg_right_length_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="pelvis_1_link" link2="pelvis_2_link" reason="Adjacent"/>
     <disable_collisions link1="pelvis_1_link" link2="pelvis_base_link" reason="Adjacent"/>
     <disable_collisions link1="pelvis_1_link" link2="right_foot_lower_left" reason="Never"/>
@@ -2853,6 +2239,7 @@
     <disable_collisions link1="pelvis_1_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="pelvis_1_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="pelvis_1_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="pelvis_1_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="pelvis_1_link" link2="torso_link" reason="Default"/>
     <disable_collisions link1="pelvis_1_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="pelvis_1_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2868,6 +2255,7 @@
     <disable_collisions link1="pelvis_2_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="pelvis_2_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="pelvis_2_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="pelvis_2_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="pelvis_2_link" link2="torso_link" reason="Adjacent"/>
     <disable_collisions link1="pelvis_2_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="pelvis_2_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2882,6 +2270,7 @@
     <disable_collisions link1="pelvis_base_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="pelvis_base_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="pelvis_base_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="pelvis_base_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="pelvis_base_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="pelvis_base_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="pelvis_base_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2895,6 +2284,7 @@
     <disable_collisions link1="right_foot_lower_left" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="right_foot_lower_left" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="right_foot_lower_left" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="right_foot_lower_left" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="right_foot_lower_left" link2="torso_link" reason="Never"/>
     <disable_collisions link1="right_foot_lower_left" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="right_foot_lower_left" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2903,9 +2293,6 @@
     <disable_collisions link1="right_foot_lower_left" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="right_foot_lower_left" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="right_foot_lower_left" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="right_foot_lower_left" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="right_foot_lower_left" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="right_foot_lower_left" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="right_foot_lower_right" link2="right_foot_upper_left" reason="Never"/>
     <disable_collisions link1="right_foot_lower_right" link2="right_foot_upper_right" reason="Never"/>
     <disable_collisions link1="right_foot_lower_right" link2="right_sole_link" reason="Adjacent"/>
@@ -2913,6 +2300,7 @@
     <disable_collisions link1="right_foot_lower_right" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="right_foot_lower_right" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="right_foot_lower_right" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="right_foot_lower_right" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="right_foot_lower_right" link2="torso_link" reason="Never"/>
     <disable_collisions link1="right_foot_lower_right" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="right_foot_lower_right" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2921,15 +2309,13 @@
     <disable_collisions link1="right_foot_lower_right" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="right_foot_lower_right" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="right_foot_lower_right" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="right_foot_lower_right" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="right_foot_lower_right" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="right_foot_lower_right" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="right_foot_upper_left" link2="right_foot_upper_right" reason="Never"/>
     <disable_collisions link1="right_foot_upper_left" link2="right_sole_link" reason="Adjacent"/>
     <disable_collisions link1="right_foot_upper_left" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="right_foot_upper_left" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="right_foot_upper_left" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="right_foot_upper_left" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="right_foot_upper_left" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="right_foot_upper_left" link2="torso_link" reason="Never"/>
     <disable_collisions link1="right_foot_upper_left" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="right_foot_upper_left" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2938,14 +2324,12 @@
     <disable_collisions link1="right_foot_upper_left" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="right_foot_upper_left" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="right_foot_upper_left" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="right_foot_upper_left" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="right_foot_upper_left" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="right_foot_upper_left" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="right_foot_upper_right" link2="right_sole_link" reason="Adjacent"/>
     <disable_collisions link1="right_foot_upper_right" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="right_foot_upper_right" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="right_foot_upper_right" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="right_foot_upper_right" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="right_foot_upper_right" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="right_foot_upper_right" link2="torso_link" reason="Never"/>
     <disable_collisions link1="right_foot_upper_right" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="right_foot_upper_right" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2954,13 +2338,11 @@
     <disable_collisions link1="right_foot_upper_right" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="right_foot_upper_right" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="right_foot_upper_right" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="right_foot_upper_right" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="right_foot_upper_right" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="right_foot_upper_right" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="right_sole_link" link2="torso_front_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="right_sole_link" link2="torso_front_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="right_sole_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="right_sole_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="right_sole_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="right_sole_link" link2="torso_link" reason="Never"/>
     <disable_collisions link1="right_sole_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="right_sole_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2969,12 +2351,10 @@
     <disable_collisions link1="right_sole_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="right_sole_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="right_sole_link" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="right_sole_link" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="right_sole_link" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="right_sole_link" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_bottom_screw_frame" link2="torso_front_down_rgbd_camera_link" reason="Adjacent"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_bottom_screw_frame" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_bottom_screw_frame" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="torso_front_down_rgbd_camera_bottom_screw_frame" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_bottom_screw_frame" link2="torso_link" reason="Adjacent"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_bottom_screw_frame" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_bottom_screw_frame" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -2983,17 +2363,16 @@
     <disable_collisions link1="torso_front_down_rgbd_camera_bottom_screw_frame" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_bottom_screw_frame" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_bottom_screw_frame" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="torso_front_down_rgbd_camera_bottom_screw_frame" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="torso_front_down_rgbd_camera_bottom_screw_frame" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="torso_front_down_rgbd_camera_bottom_screw_frame" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_link" link2="torso_front_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_link" link2="torso_front_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="torso_front_down_rgbd_camera_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_link" link2="torso_link" reason="Adjacent"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="torso_front_down_rgbd_camera_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="torso_front_up_rgbd_camera_bottom_screw_frame" link2="torso_front_up_rgbd_camera_link" reason="Adjacent"/>
+    <disable_collisions link1="torso_front_up_rgbd_camera_bottom_screw_frame" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="torso_front_up_rgbd_camera_bottom_screw_frame" link2="torso_link" reason="Adjacent"/>
     <disable_collisions link1="torso_front_up_rgbd_camera_bottom_screw_frame" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="torso_front_up_rgbd_camera_bottom_screw_frame" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
@@ -3002,14 +2381,20 @@
     <disable_collisions link1="torso_front_up_rgbd_camera_bottom_screw_frame" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="torso_front_up_rgbd_camera_bottom_screw_frame" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="torso_front_up_rgbd_camera_bottom_screw_frame" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="torso_front_up_rgbd_camera_bottom_screw_frame" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="torso_front_up_rgbd_camera_bottom_screw_frame" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="torso_front_up_rgbd_camera_bottom_screw_frame" link2="wrist_right_ft_tool_link" reason="Never"/>
+    <disable_collisions link1="torso_front_up_rgbd_camera_link" link2="torso_imu_link" reason="Never"/>
     <disable_collisions link1="torso_front_up_rgbd_camera_link" link2="torso_link" reason="Adjacent"/>
     <disable_collisions link1="torso_front_up_rgbd_camera_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="torso_front_up_rgbd_camera_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="torso_front_up_rgbd_camera_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="torso_front_up_rgbd_camera_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="torso_imu_link" link2="torso_link" reason="Adjacent"/>
+    <disable_collisions link1="torso_imu_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="torso_imu_link" link2="torso_rear_down_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="torso_imu_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
+    <disable_collisions link1="torso_imu_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
+    <disable_collisions link1="torso_imu_link" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
+    <disable_collisions link1="torso_imu_link" link2="wrist_left_ft_sensor_link" reason="Never"/>
+    <disable_collisions link1="torso_imu_link" link2="wrist_left_ft_tool_link" reason="Never"/>
     <disable_collisions link1="torso_link" link2="torso_rear_down_rgbd_camera_bottom_screw_frame" reason="Adjacent"/>
     <disable_collisions link1="torso_link" link2="torso_rear_down_rgbd_camera_link" reason="Adjacent"/>
     <disable_collisions link1="torso_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Adjacent"/>
@@ -3020,16 +2405,10 @@
     <disable_collisions link1="torso_rear_down_rgbd_camera_bottom_screw_frame" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="torso_rear_down_rgbd_camera_bottom_screw_frame" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="torso_rear_down_rgbd_camera_bottom_screw_frame" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="torso_rear_down_rgbd_camera_bottom_screw_frame" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="torso_rear_down_rgbd_camera_bottom_screw_frame" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="torso_rear_down_rgbd_camera_bottom_screw_frame" link2="wrist_right_ft_tool_link" reason="Never"/>
     <disable_collisions link1="torso_rear_down_rgbd_camera_link" link2="torso_rear_up_rgbd_camera_bottom_screw_frame" reason="Never"/>
     <disable_collisions link1="torso_rear_down_rgbd_camera_link" link2="torso_rear_up_rgbd_camera_link" reason="Never"/>
     <disable_collisions link1="torso_rear_up_rgbd_camera_bottom_screw_frame" link2="torso_rear_up_rgbd_camera_link" reason="Adjacent"/>
     <disable_collisions link1="torso_rear_up_rgbd_camera_bottom_screw_frame" link2="wrist_left_ft_sensor_base_link" reason="Never"/>
     <disable_collisions link1="torso_rear_up_rgbd_camera_bottom_screw_frame" link2="wrist_left_ft_sensor_link" reason="Never"/>
     <disable_collisions link1="torso_rear_up_rgbd_camera_bottom_screw_frame" link2="wrist_left_ft_tool_link" reason="Never"/>
-    <disable_collisions link1="torso_rear_up_rgbd_camera_bottom_screw_frame" link2="wrist_right_ft_sensor_base_link" reason="Never"/>
-    <disable_collisions link1="torso_rear_up_rgbd_camera_bottom_screw_frame" link2="wrist_right_ft_sensor_link" reason="Never"/>
-    <disable_collisions link1="torso_rear_up_rgbd_camera_bottom_screw_frame" link2="wrist_right_ft_tool_link" reason="Never"/>
 </robot>
