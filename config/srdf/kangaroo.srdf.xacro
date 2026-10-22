@@ -143,12 +143,12 @@
     <xacro:property name="left_ee_valid"
         value="${(arm_type == '4dof' and end_effector_left == 'no-end-effector')
               or (arm_type == '5dof' and end_effector_left in ['no-end-effector', 'RH8D'])
-              or (arm_type == '7dof' and end_effector_left in ['no-end-effector', 'gripper'])}"/>
+              or (arm_type == '7dof' and end_effector_left in ['no-end-effector', 'pal-pro-gripper'])}"/>
 
     <xacro:property name="right_ee_valid"
         value="${(arm_type == '4dof' and end_effector_right == 'no-end-effector')
               or (arm_type == '5dof' and end_effector_right in ['no-end-effector', 'RH8D'])
-              or (arm_type == '7dof' and end_effector_right in ['no-end-effector', 'gripper'])}"/>
+              or (arm_type == '7dof' and end_effector_right in ['no-end-effector', 'pal-pro-gripper'])}"/>
 
     <xacro:if value="${has_arm}">
         <xacro:if value="${left_ee_valid}">
