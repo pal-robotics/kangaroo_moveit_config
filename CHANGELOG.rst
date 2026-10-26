@@ -2,8 +2,8 @@
 Changelog for package kangaroo_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.3.0 (2026-10-26)
+------------------
 * Rename controllers names
 * Rename gripper to pal-pro-gripper
 * Contributors: Aina
